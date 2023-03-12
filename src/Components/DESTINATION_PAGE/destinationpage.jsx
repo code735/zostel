@@ -10,6 +10,7 @@ function Destinationpage() {
     <div>Destination Page</div>
     <div>Destination Page</div>
     <div>Destination Page</div>
+    <div>Destination Page</div>
     </div>
   )
 }
