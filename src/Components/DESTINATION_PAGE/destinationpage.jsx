@@ -2,7 +2,15 @@ import React from 'react'
 
 function Destinationpage() {
   return (
-    <div>Destination Page</div>
+    <div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+      <div>Destination Page</div>
+    </div>
   )
 }
 
