@@ -1,6 +1,6 @@
-import { Box, Image, useColorMode, Button, Text } from '@chakra-ui/react';
+import { Box, Image, useColorMode, Button, Text, Menu, MenuList, MenuItem, MenuButton } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { BsSunFill, BsMoonFill, } from 'react-icons/bs';
+import { BsSunFill, BsMoonFill, BsChevronBarDown } from 'react-icons/bs';
 import logo from '../images/logo.png';
 import './Navbar.css'
 
@@ -30,9 +30,69 @@ function Navbar() {
             </NavLink>
           </Text>
           <Text mx={2}>
-            <NavLink >
-              Zostel
-            </NavLink>
+            <Menu>
+              <MenuButton
+                px={4}
+                py={2}
+                transition='all 0.2s'
+                borderRadius='md'
+                border='none'
+                borderWidth='1px'
+                _hover={{ bg: 'gray.400' }}
+                _expanded={{ bg: 'blue.400' }}
+                _focus={{ boxShadow: 'outline' }}
+              >
+                Zostel Locations <BsChevronBarDown />
+              </MenuButton>
+              <MenuList>
+                <MenuItem>Zostel Alleppey</MenuItem>
+                <MenuItem>Zostel Aurangabad</MenuItem>
+                <MenuItem>Zostel Bangalore</MenuItem>
+                <MenuItem>Zostel Banikhet (Dalhousie)</MenuItem>
+                <MenuItem>Zostel Barot (Rajgundha)</MenuItem>
+                <MenuItem>Zostel Bundi</MenuItem>
+                <MenuItem>Zostel Chitkul</MenuItem>
+                <MenuItem>Zostel Coorg (Madikeri)</MenuItem>
+                <MenuItem>Zostel Coorg (Siddapura)</MenuItem>
+                <MenuItem>Zostel Dalhousie</MenuItem>
+                <MenuItem>Zostel Delhi</MenuItem>
+                <MenuItem>Zostel Dharamkot</MenuItem>
+                <MenuItem>Zostel Dobhi</MenuItem>
+                <MenuItem>Zostel Gangtok</MenuItem>
+                <MenuItem>Zostel Goa (Morjim)</MenuItem>
+                <MenuItem>Zostel Gokarna</MenuItem>
+                <MenuItem>Zostel Hyderabad</MenuItem>
+                <MenuItem>Zostel Jaipur</MenuItem>
+                <MenuItem>Zostel Jaisalmer</MenuItem>
+                <MenuItem>Zostel Jodhpur</MenuItem>
+                <MenuItem>Zostel Kathmandu</MenuItem>
+                <MenuItem>Zostel Kochi</MenuItem>
+                <MenuItem>Zostel Kodaikanal</MenuItem>
+                <MenuItem>Zostel Kolad</MenuItem>
+                <MenuItem>Zostel Leh</MenuItem>
+                <MenuItem>Zostel Manali (Burwa)</MenuItem>
+                <MenuItem>Zostel Manali (Old Manali)</MenuItem>
+                <MenuItem>Zostel Manali (Vashisht)</MenuItem>
+                <MenuItem>Zostel McLeodganj</MenuItem>
+                <MenuItem>Zostel Mukteshwar</MenuItem>
+                <MenuItem>Zostel Mumbai</MenuItem>
+                <MenuItem>Zostel Munnar</MenuItem>
+                <MenuItem>Zostel Mysore</MenuItem>
+                <MenuItem>Zostel Ooty</MenuItem>
+                <MenuItem>Zostel Pokhara</MenuItem>
+                <MenuItem>Zostel Pushkar</MenuItem>
+                <MenuItem>Zostel Rishikesh (Laxman Jhula)</MenuItem>
+                <MenuItem>Zostel Rishikesh (Tapovan)</MenuItem>
+                <MenuItem>Zostel Sangla</MenuItem>
+                <MenuItem>Zostel Shangarh</MenuItem>
+                <MenuItem>Zostel Sissu</MenuItem>
+                <MenuItem>Zostel Spiti</MenuItem>
+                <MenuItem>Zostel Srinagar</MenuItem>
+                <MenuItem>Zostel Udaipur</MenuItem>
+                <MenuItem>Zostel Vagamon</MenuItem>
+                <MenuItem>Zostel Varkala</MenuItem>
+              </MenuList>
+            </Menu>
           </Text>
           <Text mx={2}>
             <NavLink>
