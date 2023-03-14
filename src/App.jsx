@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './Router/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
-import Destinationpage from './Components/DESTINATION_PAGE/destinationpage';
+import AllRoutes from './Router/AllRoutes';
 
 function App() {
   const dispatch = useDispatch();
@@ -13,6 +13,7 @@ function App() {
   return (
     <div className="App">
       <Navbar/>
+      <AllRoutes/>
     </div>
   );
 }
