@@ -15,10 +15,11 @@ function Navbar() {
         <Box display="flex" alignItems="center" gap='10px'>
           <Image width={{ sm: "50px" }} objectFit={'cover'} src={logo} />
           <p style={{
-            fontWeight: "bold"
+            fontWeight: "bold",
+            letterSpacing: "5px"
           }}
             className="logotxt"
-          >Z O S T E L</p>
+          >Z  O  S  T  E  L</p>
         </Box>
       </NavLink>
       <Box display={'flex'}>
@@ -33,11 +34,31 @@ function Navbar() {
               Zostel
             </NavLink>
           </Text>
-          <Text mx={2}>Zostel Homes</Text>
-          <Text mx={2}>Zostel Plus</Text>
-          <Text mx={2}>Franchise</Text>
-          <Text mx={2}>Join us</Text>
-          <Text mx={2}>Blog</Text>
+          <Text mx={2}>
+            <NavLink>
+              Zostel Homes
+            </NavLink>
+          </Text>
+          <Text mx={2}>
+            <NavLink>
+              Zostel Plus
+            </NavLink>
+          </Text>
+          <Text mx={2}>
+            <NavLink>
+              Franchise
+            </NavLink>
+          </Text>
+          <Text mx={2}>
+            <NavLink>
+              Join us
+            </NavLink>
+          </Text>
+          <Text mx={2}>
+            <NavLink>
+              Blog
+            </NavLink>
+          </Text>
         </Box>
         <Box>
           <Button onClick={toggleColorMode}>
