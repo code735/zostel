@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 export default function Home() {
   return (
     <div>
-      <NavLink to='individual'>Book Now</NavLink>
+      <NavLink to='/individual'>Book Now</NavLink>
     </div>
   )
 }
