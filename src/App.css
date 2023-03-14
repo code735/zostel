@@ -1,10 +1,22 @@
-body {
-  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
 a {
   font-weight: 600;
   color: black;
   text-decoration: none;
   line-height: 1.5;
+}
+
+img {
+  width: 100%;
+}
+
+@media (min-width:375px) {
+  .logotxt {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width:425px) {
+  .logotxt {
+    font-size: 1.3rem;
+  }
 }
