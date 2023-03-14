@@ -1,6 +1,6 @@
-import { Box, Image, useColorMode, Button, Text, Menu, MenuList, MenuItem, MenuButton } from '@chakra-ui/react';
+import { Box, Image, useColorMode, Button, Text, Menu, MenuList, MenuItem, MenuButton, MenuDivider, MenuGroup } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { BsSunFill, BsMoonFill, BsChevronBarDown } from 'react-icons/bs';
+import { BsSunFill, BsMoonFill, BsChevronDown } from 'react-icons/bs';
 import logo from '../images/logo.png';
 import './Navbar.css'
 
@@ -38,13 +38,21 @@ function Navbar() {
                 borderRadius='md'
                 border='none'
                 borderWidth='1px'
-                _hover={{ bg: 'gray.400' }}
-                _expanded={{ bg: 'blue.400' }}
-                _focus={{ boxShadow: 'outline' }}
               >
-                Zostel Locations <BsChevronBarDown />
+                <Text
+                  fontWeight='bold'
+                  outline='none'
+                  display="flex"
+                  alignItems='center'
+                  gap='10px'
+                >
+                  <Text>Zostel</Text> <BsChevronDown style={{
+                    fontWeight: "bold",
+                    fontSize: ".8rem"
+                  }} />
+                </Text>
               </MenuButton>
-              <MenuList>
+              <MenuList className='MenuList'>
                 <MenuItem>Zostel Alleppey</MenuItem>
                 <MenuItem>Zostel Aurangabad</MenuItem>
                 <MenuItem>Zostel Bangalore</MenuItem>
@@ -125,6 +133,23 @@ function Navbar() {
             {colorMode === "light" ? <BsMoonFill /> : <BsSunFill fontSize={'1.4rem'} />}
           </Button>
         </Box>
+        <Menu>
+          <MenuButton as={Button} colorScheme='pink'>
+            Profile
+          </MenuButton>
+          <MenuList>
+            <MenuGroup title='Profile'>
+              <MenuItem>
+                <NavLink to='/profile'>My Account</NavLink></MenuItem>
+              <MenuItem>Payments </MenuItem>
+            </MenuGroup>
+            <MenuDivider />
+            <MenuGroup title='Help'>
+              <MenuItem>Docs</MenuItem>
+              <MenuItem>FAQ</MenuItem>
+            </MenuGroup>
+          </MenuList>
+        </Menu>
       </Box>
     </Box>
   </>

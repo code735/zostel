@@ -2,3 +2,16 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+.MenuList button {
+    background: black;
+    color: white;
+    padding: 10px;
+}
+
+.MenuList {
+    height: 150vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
