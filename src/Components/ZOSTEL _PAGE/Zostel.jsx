@@ -1,9 +1,7 @@
 import React from 'react'
 
-export default function Individual() {
+export default function Zostel() {
   return (
-    <div>
-      <h1>Zostel page</h1>
-    </div>
+    <div>Zostel</div>
   )
 }
