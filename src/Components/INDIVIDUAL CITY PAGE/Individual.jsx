@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
 import prop from "./indivdual.module.css"
 
 export default function Individual() {
@@ -89,7 +90,7 @@ export default function Individual() {
                    <h1>Zostal Aurangabad</h1>
                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam veritatis tenetur pariatur facere vero in nam assumenda repellat autem animi, quos vitae aliquam inventore 
                       voluptatibus, perspiciatis unde numquam. Commodi, possimus?</p>
-                     <p>Starting At rs 499</p> <span><button>View Now</button></span>
+                     <p>Starting At rs 499</p> <span><button><NavLink to ="/zostel">View Now</NavLink></button></span>
               </div>
 
             </div>
