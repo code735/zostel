@@ -14,8 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { BounceLoader, RiseLoader } from "react-spinners";
-import DotLoader from "react-spinners/DotLoader";
+import PreLoader from "../PreLoader";
 import data from "./Explore Destinations _ Zostel.json"
 function Destinationpage() {
   const [loading,setLoading]= useState(false)
@@ -23,16 +22,15 @@ function Destinationpage() {
     setLoading(true)
     setTimeout(()=>{
       setLoading(false)
-    },2500)
+    },2000)
   },[])
 
   return <>
     {loading? 
+
     <Center h={"100vh"}>
-    {/* <DotLoader speedMultiplier={4} size={"50"} color="#F15824" /> */}
-    {/* <RiseLoader speedMultiplier={1.5} size={"30"} color="#F15824" /> */}
-    <BounceLoader speedMultiplier={1.5} size={"60"} color="#F15824" />
-    <Text as={"h1"} ml={2} fontSize="40" color='#F15824'>Loading.....</Text>
+    {/* //preloader */}
+    <PreLoader/>
     </Center>:
     <Stack m={"auto"} w="80%" mt={10}>
       {/* Header  */}
