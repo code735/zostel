@@ -4,19 +4,39 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Card,
+  Center,
+  CircularProgress,
   HStack,
   Image,
+  Link,
   SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { BounceLoader, RiseLoader } from "react-spinners";
+import DotLoader from "react-spinners/DotLoader";
+import data from "./Explore Destinations _ Zostel.json"
 function Destinationpage() {
-  return (
+  const [loading,setLoading]= useState(false)
+  useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },2500)
+  },[])
+
+  return <>
+    {loading? 
+    <Center h={"100vh"}>
+    {/* <DotLoader speedMultiplier={4} size={"50"} color="#F15824" /> */}
+    {/* <RiseLoader speedMultiplier={1.5} size={"30"} color="#F15824" /> */}
+    <BounceLoader speedMultiplier={1.5} size={"60"} color="#F15824" />
+    <Text as={"h1"} ml={2} fontSize="40" color='#F15824'>Loading.....</Text>
+    </Center>:
     <Stack m={"auto"} w="80%" mt={10}>
       {/* Header  */}
-      <HStack m={"auto"} fontSize="30px" fontWeight={"bold"}>
+      <HStack  fontSize={{ sm: '30', md:"38",lg: '38',xl:"38" }} fontWeight={"bold"}>
         <Text as={"h1"}>Explore</Text>
         <Text as={"strong"} color={"#F15824"}>
           Destinations
@@ -35,14 +55,12 @@ function Destinationpage() {
       </Breadcrumb>
       </Box>
 
-      <SimpleGrid columns={{ sm: '2', md:"3",lg: '4' }} spacing={3}>
-        {Array(78)
-          .fill()
-          .map((e) => {
+      <SimpleGrid columns={{ sm: '1', md:"2",lg: '3',xl:"4" }} spacing={3}>
+        {data.map((e) => {
             return (
               <Card maxW="sm" position="relative">
                 <Image
-                  src="https://img.cdn.zostel.com/zostel/gallery/images/FkicgycmQUSiCUU2ZjQnFw/banikhet-20230223105721.png?h=400"
+                  src={e.Image}
                   alt="Green double couch with wooden legs"
                   borderRadius="lg"
                   opacity={"0.9"}
@@ -52,19 +70,20 @@ function Destinationpage() {
                 />
                 <Text
                   position="absolute"
-                  bottom="2"
-                  left="2"
+                  bottom="4"
+                  left="4"
                   fontWeight="bold"
                   color="white"
+                  fontSize={"2xl"}
                 >
-                  Yooooooo
+                  {e.Title=="Bangalore"||e.Title=="Delhi"?<Link href="#">{e.Title}</Link>:e.Title}
                 </Text>
               </Card>
             );
           })}
       </SimpleGrid>
-    </Stack>
-  );
+    </Stack>}
+  </>
 }
 
 export default Destinationpage;
