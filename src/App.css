@@ -8,15 +8,3 @@ a {
 img {
   width: 100%;
 }
-
-@media (min-width:375px) {
-  .logotxt {
-    font-size: 1rem;
-  }
-}
-
-@media (min-width:425px) {
-  .logotxt {
-    font-size: 1.3rem;
-  }
-}
