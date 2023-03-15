@@ -48,17 +48,58 @@
     }
 }
 
+@media (min-width:960px) {
+    .navlinks {
+        gap: 20px;
+    }
+
+    .navlinks a {
+        font-size: .8rem;
+    }
+
+    .navlinks p {
+        margin: 0;
+    }
+
+    .dropdown_links {
+        font-size: .8rem;
+    }
+
+    .MenuList-zostel {
+        height: 200vh;
+    }
+
+    .MenuList {
+        height: 200vh;
+    }
+}
+
 @media(min-width:1024px) {
     .navlinks {
         padding: 0;
         margin: 0;
+        gap: 20px;
     }
 
-    .navlinks {
-        gap: 10px;
+    .navlinks a {
+        font-size: .8rem;
     }
 
-    .logotxt {
+    .dropdown_links {
+        font-size: .8rem;
+    }
+}
+
+@media(min-width:1200px) {
+    .navlinks a {
         font-size: 1rem;
+    }
+
+    .dropdown_links {
+        font-size: 1rem;
+    }
+
+    .MenuList-zostel {
+        height: 140vh;
     }
 }

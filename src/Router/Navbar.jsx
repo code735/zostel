@@ -10,7 +10,7 @@ function Navbar() {
   console.log(colorMode)
 
   return <>
-    <Box w='100%' className='navbar' display='flex' px={{ sm: '10px', lg: '30px' }} py={{ sm: '10px' }} justifyContent='space-between' alignItems='center'>
+    <Box w='100%' className='navbar' display='flex' px={{ sm: '10px', lg: '10px', xl: '30px' }} py={{ sm: '10px' }} justifyContent='space-between' alignItems='center'>
       <NavLink to='/'>
         <Box display="flex" alignItems="center" gap='10px'>
           <Image width={{ sm: "50px" }} objectFit={'cover'} src={logo} />
@@ -22,7 +22,7 @@ function Navbar() {
           >Z  O  S  T  E  L</p>
         </Box>
       </NavLink>
-      <Box display={'flex'}>
+      <Box display={'flex'} gap='10px'>
         <Box display={{ base: 'none', lg: 'flex' }} className='navlinks' alignItems='center'>
           <Text mx={2}>
             <NavLink to='/destination'>
@@ -44,7 +44,7 @@ function Navbar() {
                   alignItems='center'
                   gap='5px'
                 >
-                  <Text>Zostel</Text> <BsChevronDown style={{
+                  <Text className='dropdown_links'>Zostel</Text> <BsChevronDown style={{
                     fontWeight: "bold",
                     fontSize: ".6rem"
                   }} />
@@ -111,7 +111,7 @@ function Navbar() {
                   alignItems='center'
                   gap='5px'
                 >
-                  <Text>Zostel Homes</Text> <BsChevronDown style={{
+                  <Text className='dropdown_links'>Zostel Homes</Text> <BsChevronDown style={{
                     fontWeight: "bold",
                     fontSize: ".8rem"
                   }} />
@@ -155,7 +155,7 @@ function Navbar() {
                   alignItems='center'
                   gap='5px'
                 >
-                  <Text>Zostel Plus</Text> <BsChevronDown style={{
+                  <Text className='dropdown_links'>Zostel Plus</Text> <BsChevronDown style={{
                     fontWeight: "bold",
                     fontSize: ".8rem"
                   }} />
@@ -193,7 +193,7 @@ function Navbar() {
                   alignItems='center'
                   gap='10px'
                 >
-                  <Text>Join Us</Text> <BsChevronDown style={{
+                  <Text className='dropdown_links'>Join Us</Text> <BsChevronDown style={{
                     fontWeight: "bold",
                     fontSize: ".8rem"
                   }} />
