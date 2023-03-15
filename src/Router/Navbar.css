@@ -4,21 +4,19 @@
 }
 
 .MenuList button {
-    background: black;
+    background: #0A181D;
     color: white;
     padding: 10px;
 }
 
 .MenuList {
-    height: 80vh;
-    background: black;
+    background: #0A181D;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
 
 .MenuList-zostel {
-    height: 80vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -26,7 +24,7 @@
 }
 
 .MenuList-zostel button {
-    background: black;
+    background: #0A181D;
     color: white;
 }
 
@@ -65,10 +63,6 @@
         font-size: .8rem;
     }
 
-    .MenuList-zostel {
-        height: 200vh;
-    }
-
     .MenuList {
         height: 200vh;
     }
@@ -97,9 +91,5 @@
 
     .dropdown_links {
         font-size: 1rem;
-    }
-
-    .MenuList-zostel {
-        height: 140vh;
     }
 }
