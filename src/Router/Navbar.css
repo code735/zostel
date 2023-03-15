@@ -58,7 +58,7 @@
     }
 
     .navlinks p {
-        margin: 0;
+        /* margin: 0; */
     }
 
     .dropdown_links {
@@ -66,11 +66,11 @@
     }
 
     .MenuList-zostel {
-        height: 200vh;
+        /* height: 200vh; */
     }
 
     .MenuList {
-        height: 200vh;
+        /* height: 200vh; */
     }
 }
 

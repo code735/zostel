@@ -138,6 +138,58 @@ function Navbar() {
                 <MenuItem>Zostel Ramgarh (Nainital)</MenuItem>
                 <MenuItem>Zostel Rashil</MenuItem>
               </MenuList>
+
+              {/* Stack CODE  */}
+              {/* <HStack bg={"black"} spacing={0}>
+                    <Stack bg={"black"} spacing={0}>
+                      <MenuItem>Zostel Alleppey</MenuItem>
+                      <MenuItem>Zostel Aurangabad</MenuItem>
+                      <MenuItem>Zostel Bangalore</MenuItem>
+                      <MenuItem>Zostel Banikhet (Dalhousie)</MenuItem>
+                      <MenuItem>Zostel Barot (Rajgundha)</MenuItem>
+                      <MenuItem>Zostel Bundi</MenuItem>
+                      <MenuItem>Zostel Chitkul</MenuItem>
+                      <MenuItem>Zostel Coorg (Madikeri)</MenuItem>
+                      <MenuItem>Zostel Coorg (Siddapura)</MenuItem>
+                      <MenuItem>Zostel Dalhousie</MenuItem>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <MenuItem>Zostel Jaisalmer</MenuItem>
+                      <MenuItem>Zostel Jodhpur</MenuItem>
+                      <MenuItem>Zostel Kathmandu</MenuItem>
+                      <MenuItem>Zostel Kochi</MenuItem>
+                      <MenuItem>Zostel Kodaikanal</MenuItem>
+                      <MenuItem>Zostel Kolad</MenuItem>
+                      <MenuItem>Zostel Leh</MenuItem>
+                      <MenuItem>Zostel Manali (Burwa)</MenuItem>
+                      <MenuItem>Zostel Manali (Old Manali)</MenuItem>
+                      <MenuItem>Zostel Pushkar</MenuItem>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <MenuItem>Zostel Rishikesh (Laxman Jhula)</MenuItem>
+                      <MenuItem>Zostel Rishikesh (Tapovan)</MenuItem>
+                      <MenuItem>Zostel Sangla</MenuItem>
+                      <MenuItem>Zostel Shangarh</MenuItem>
+                      <MenuItem>Zostel Sissu</MenuItem>
+                      <MenuItem>Zostel Spiti</MenuItem>
+                      <MenuItem>Zostel Delhi</MenuItem>
+                      <MenuItem>Zostel Dharamkot</MenuItem>
+                      <MenuItem>Zostel Dobhi</MenuItem>
+                      <MenuItem>Zostel Gangtok</MenuItem>
+                    </Stack>
+                    <Stack spacing={0}>
+                      <MenuItem>Zostel Goa (Morjim)</MenuItem>
+                      <MenuItem>Zostel Gokarna</MenuItem>
+                      <MenuItem>Zostel Hyderabad</MenuItem>
+                      <MenuItem>Zostel Jaipur</MenuItem>
+                      <MenuItem>Zostel Manali (Vashisht)</MenuItem>
+                      <MenuItem>Zostel McLeodganj</MenuItem>
+                      <MenuItem>Zostel Mukteshwar</MenuItem>
+                      <MenuItem>Zostel Mumbai</MenuItem>
+                      <MenuItem>Zostel Munnar</MenuItem>
+                      <MenuItem>Zostel Mysore</MenuItem>
+                    </Stack>
+                  </HStack> */}
             </Menu>
           </Text>
           <Text mx={2}>
