@@ -1,6 +1,6 @@
 import { Box, Image, useColorMode, Button, Text, Menu, MenuList, MenuItem, MenuButton, MenuDivider, MenuGroup } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { BsSunFill, BsMoonFill, BsChevronDown } from 'react-icons/bs';
+import { BsSunFill, BsMoonFill, BsChevronDown, BsPersonCircle } from 'react-icons/bs';
 import logo from '../images/logo.png';
 import './Navbar.css'
 
@@ -16,7 +16,7 @@ function Navbar() {
           <Image width={{ sm: "50px" }} objectFit={'cover'} src={logo} />
           <p style={{
             fontWeight: "bold",
-            letterSpacing: "5px"
+            letterSpacing: "3px"
           }}
             className="logotxt"
           >Z  O  S  T  E  L</p>
@@ -221,8 +221,12 @@ function Navbar() {
           </Button>
         </Box>
         <Menu>
-          <MenuButton display={{ base: 'none', lg: 'block' }} as={Button} colorScheme='pink'>
-            Profile
+          <MenuButton display={{ base: 'none', lg: 'block' }} as={Button} border='1px'>
+            <Box display={{ base: 'flex' }} alignItems='center' gap='10px'>
+              <BsPersonCircle style={{
+                fontWeight: "bold"
+              }} /> <Text>Profile</Text>
+            </Box>
           </MenuButton>
           <MenuList>
             <MenuGroup title='Profile'>
