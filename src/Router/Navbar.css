@@ -10,8 +10,55 @@
 }
 
 .MenuList {
-    height: 150vh;
+    height: 80vh;
+    background: black;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+}
+
+.MenuList-zostel {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: none;
+}
+
+.MenuList-zostel button {
+    background: black;
+    color: white;
+}
+
+.chakra-text div {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+@media (min-width:375px) {
+    .logotxt {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width:425px) {
+    .logotxt {
+        font-size: 1rem;
+    }
+}
+
+@media(min-width:1024px) {
+    .navlinks {
+        padding: 0;
+        margin: 0;
+    }
+
+    .navlinks {
+        gap: 10px;
+    }
+
+    .logotxt {
+        font-size: 1rem;
+    }
 }

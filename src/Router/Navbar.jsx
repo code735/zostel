@@ -10,7 +10,7 @@ function Navbar() {
   console.log(colorMode)
 
   return <>
-    <Box w='100%' display='flex' px={{ sm: '10px', lg: '30px' }} py={{ sm: '10px' }} justifyContent='space-between' alignItems='center'>
+    <Box w='100%' className='navbar' display='flex' px={{ sm: '10px', lg: '30px' }} py={{ sm: '10px' }} justifyContent='space-between' alignItems='center'>
       <NavLink to='/'>
         <Box display="flex" alignItems="center" gap='10px'>
           <Image width={{ sm: "50px" }} objectFit={'cover'} src={logo} />
@@ -23,17 +23,15 @@ function Navbar() {
         </Box>
       </NavLink>
       <Box display={'flex'}>
-        <Box display={{ base: 'none', md: 'flex' }} className='navlinks' alignItems='center'>
+        <Box display={{ base: 'none', lg: 'flex' }} className='navlinks' alignItems='center'>
           <Text mx={2}>
             <NavLink to='/destination'>
               Destinations
             </NavLink>
           </Text>
           <Text mx={2}>
-            <Menu>
+            <Menu className="menu">
               <MenuButton
-                px={4}
-                py={2}
                 transition='all 0.2s'
                 borderRadius='md'
                 border='none'
@@ -44,15 +42,15 @@ function Navbar() {
                   outline='none'
                   display="flex"
                   alignItems='center'
-                  gap='10px'
+                  gap='5px'
                 >
                   <Text>Zostel</Text> <BsChevronDown style={{
                     fontWeight: "bold",
-                    fontSize: ".8rem"
+                    fontSize: ".6rem"
                   }} />
                 </Text>
               </MenuButton>
-              <MenuList className='MenuList'>
+              <MenuList className='MenuList-zostel'>
                 <MenuItem>Zostel Alleppey</MenuItem>
                 <MenuItem>Zostel Aurangabad</MenuItem>
                 <MenuItem>Zostel Bangalore</MenuItem>
@@ -95,22 +93,85 @@ function Navbar() {
                 <MenuItem>Zostel Shangarh</MenuItem>
                 <MenuItem>Zostel Sissu</MenuItem>
                 <MenuItem>Zostel Spiti</MenuItem>
-                <MenuItem>Zostel Srinagar</MenuItem>
-                <MenuItem>Zostel Udaipur</MenuItem>
-                <MenuItem>Zostel Vagamon</MenuItem>
-                <MenuItem>Zostel Varkala</MenuItem>
               </MenuList>
             </Menu>
           </Text>
           <Text mx={2}>
-            <NavLink>
-              Zostel Homes
-            </NavLink>
+            <Menu className="menu">
+              <MenuButton
+                transition='all 0.2s'
+                borderRadius='md'
+                border='none'
+                borderWidth='1px'
+              >
+                <Text
+                  fontWeight='bold'
+                  outline='none'
+                  display="flex"
+                  alignItems='center'
+                  gap='5px'
+                >
+                  <Text>Zostel Homes</Text> <BsChevronDown style={{
+                    fontWeight: "bold",
+                    fontSize: ".8rem"
+                  }} />
+                </Text>
+              </MenuButton>
+              <MenuList className='MenuList'>
+                <MenuItem>Zostel Alleppey</MenuItem>
+                <MenuItem>Zostel Aurangabad</MenuItem>
+                <MenuItem>Zostel Bangalore</MenuItem>
+                <MenuItem>Zostel Banikhet (Dalhousie)</MenuItem>
+                <MenuItem>Zostel Barot (Rajgundha)</MenuItem>
+                <MenuItem>Zostel Bundi</MenuItem>
+                <MenuItem>Zostel Chamera (Chamba)</MenuItem>
+                <MenuItem>Zostel Cheog</MenuItem>
+                <MenuItem>Zostel Dalhousie</MenuItem>
+                <MenuItem>Zostel Harabhag (Joginder Nagar)</MenuItem>
+                <MenuItem>Zostel Kasar Devi</MenuItem>
+                <MenuItem>Zostel Kibber</MenuItem>
+                <MenuItem>Zostel Kotkhai</MenuItem>
+                <MenuItem>Zostel Laida</MenuItem>
+                <MenuItem>Zostel Mashobra</MenuItem>
+                <MenuItem>Zostel Pushkar</MenuItem>
+                <MenuItem>Zostel Rakchham</MenuItem>
+                <MenuItem>Zostel Ramgarh (Nainital)</MenuItem>
+                <MenuItem>Zostel Rashil</MenuItem>
+              </MenuList>
+            </Menu>
           </Text>
           <Text mx={2}>
-            <NavLink>
-              Zostel Plus
-            </NavLink>
+            <Menu className="menu">
+              <MenuButton
+                transition='all 0.2s'
+                borderRadius='md'
+                border='none'
+                borderWidth='1px'
+              >
+                <Text
+                  fontWeight='bold'
+                  outline='none'
+                  display="flex"
+                  alignItems='center'
+                  gap='5px'
+                >
+                  <Text>Zostel Plus</Text> <BsChevronDown style={{
+                    fontWeight: "bold",
+                    fontSize: ".8rem"
+                  }} />
+                </Text>
+              </MenuButton>
+              <MenuList className='MenuList'>
+                <MenuItem>Zostel Plus Bir</MenuItem>
+                <MenuItem>Zostel Plus Kareri</MenuItem>
+                <MenuItem>Zostel Plus Lonavala</MenuItem>
+                <MenuItem>Zostel Plus Mussoorie</MenuItem>
+                <MenuItem>Zostel Plus Nainital (Naina Range)</MenuItem>
+                <MenuItem>Zostel Plus Panchgani</MenuItem>
+                <MenuItem>Zostel Plus Rishikesh (Mohanchatti)</MenuItem>
+                <MenuItem>Zostel Plus Wayanad</MenuItem>
+              </MenuList>
+            </Menu>
           </Text>
           <Text mx={2}>
             <NavLink>
@@ -118,9 +179,35 @@ function Navbar() {
             </NavLink>
           </Text>
           <Text mx={2}>
-            <NavLink>
-              Join us
-            </NavLink>
+            <Menu className="menu">
+              <MenuButton
+                transition='all 0.2s'
+                borderRadius='md'
+                border='none'
+                borderWidth='1px'
+              >
+                <Text
+                  fontWeight='bold'
+                  outline='none'
+                  display="flex"
+                  alignItems='center'
+                  gap='10px'
+                >
+                  <Text>Join Us</Text> <BsChevronDown style={{
+                    fontWeight: "bold",
+                    fontSize: ".8rem"
+                  }} />
+                </Text>
+              </MenuButton>
+              <MenuList className='MenuList'>
+                <MenuItem>Careers</MenuItem>
+                <MenuItem>Zostel Internship Program</MenuItem>
+                <MenuItem>Artist Collaboration Program</MenuItem>
+                <MenuItem>Travel Agency Partner Program</MenuItem>
+                <MenuItem>Tour Operator Partner Program</MenuItem>
+                <MenuItem>Travel, Shoot & Learn with Zostel</MenuItem>
+              </MenuList>
+            </Menu>
           </Text>
           <Text mx={2}>
             <NavLink>
@@ -134,7 +221,7 @@ function Navbar() {
           </Button>
         </Box>
         <Menu>
-          <MenuButton as={Button} colorScheme='pink'>
+          <MenuButton display={{ base: 'none', lg: 'block' }} as={Button} colorScheme='pink'>
             Profile
           </MenuButton>
           <MenuList>
