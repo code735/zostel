@@ -12,3 +12,32 @@ img {
 .mobile_slide {
   top: 0px;
 }
+
+.slideshow {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.slide {
+  flex: 1 0 100%;
+  position: relative;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+.slide img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.slide h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
