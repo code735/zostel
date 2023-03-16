@@ -8,3 +8,7 @@ a {
 img {
   width: 100%;
 }
+
+.mobile_slide {
+  top: 0px;
+}
