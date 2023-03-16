@@ -9,8 +9,19 @@ img {
   width: 100%;
 }
 
+
+body::-webkit-scrollbar {
+  background: white;
+  width: 5px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #0A181D;
+}
+
 .mobile_slide {
   top: 0px;
+  z-index: 2;
 }
 
 .slideshow {
