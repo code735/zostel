@@ -21,12 +21,11 @@ export default function Home() {
         height: "100%",
         flexDirection: "column",
       }}>
-        <Text as='h1' fontWeight='bold' textShadow='0px 0px 10px grey' color='white' fontSize='4rem' mb='2.5rem'>Live it. Now</Text>
+        <Text as='h1' fontWeight='bold' textShadow='0px 0px 10px grey' color='white' fontSize={{ sm: '2rem', md: '4rem' }} mb='2.5rem'>Live it. Now</Text>
         <div style={{
           background: "white",
           padding: "20px",
           paddingBottom: "30px",
-          width: "75%",
           borderRadius: "5px"
         }}>
 

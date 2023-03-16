@@ -11,7 +11,7 @@ function Navbar() {
   console.log(colorMode)
 
   return <>
-    <Box w='100%' className='navbar' display='flex' px={{ sm: '10px', lg: '10px', xl: '30px' }} py={{ sm: '10px' }} position={{ sm: "relative", xl: "static" }} justifyContent='space-between' alignItems='center'>
+    <Box w='100%' className='navbar' display='flex' px={{ sm: '10px', lg: '10px', xl: '30px' }} py={{ sm: '10px' }} position={{ sm: "relative" }} zIndex='2' justifyContent='space-between' alignItems='center'>
       <NavLink to='/'>
         <Box display="flex" alignItems="center" gap='10px'>
           <Image width={{ sm: "35px", md: "50px" }} objectFit={'cover'} src={logo} />
