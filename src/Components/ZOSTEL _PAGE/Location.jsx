@@ -1,4 +1,4 @@
-import { Box, Heading, Text, Flex, Button, Spacer, VStack } from "@chakra-ui/react";
+import { Box, Heading, Text, Flex, Button, } from "@chakra-ui/react";
 import { FaWhatsapp } from "react-icons/fa"
 import { BiDirections } from "react-icons/bi"
 import { Menu, MenuButton, MenuList, MenuItem, } from "@chakra-ui/react"
@@ -18,10 +18,9 @@ const LocationCom = () => {
                     <Text>Beach Road, Near Vijay Beach Park, Sea View Ward, Padinjare Kurisadi, Kanjiramchira, Alappuzha, Kerala Contact : 04440114576</Text>
 
 
-                    <Button mt="30px" w="210px" fontSize="2xl" color="#f15824" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" textAlign="start" >
+                    <Button mt="30px" w="210px" fontSize="1xl" color="#f15824" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" textAlign="start" >
                         <FaWhatsapp color="#f15824" />
-                        <Spacer />
-                        Whatapp Us
+                         Whatapp Us
                     </Button>
 
                     <Menu >
@@ -48,9 +47,9 @@ const LocationCom = () => {
                         Get Direction
                     </Button>
                 </Box>
-                <Box border="1px solid black">
-
-                </Box>
+              <Box  >
+              <div class="mapouter"><div class="gmap_canvas"><iframe borderRadius="20px" width="700px" height="300px" id="gmap_canvas" src="https://maps.google.com/maps?q=india&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+              </Box>
             </Flex>
 
 
