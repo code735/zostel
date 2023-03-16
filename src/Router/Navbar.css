@@ -3,6 +3,14 @@
     text-decoration: none;
 }
 
+.navlinks a:hover {
+    color: rgb(241, 88, 36);
+}
+
+.navlinks p:hover {
+    color: rgb(241, 88, 36);
+}
+
 .MenuList button {
     background: #0A181D;
     color: white;
@@ -34,21 +42,13 @@
     background: transparent;
 }
 
-@media (min-width:375px) {
-    .logotxt {
-        font-size: 1rem;
-    }
-}
+@media (min-width:375px) {}
 
-@media (min-width:425px) {
-    .logotxt {
-        font-size: 1rem;
-    }
-}
+@media (min-width:425px) {}
 
 @media (min-width:960px) {
     .navlinks {
-        gap: 20px;
+        gap: 15px;
     }
 
     .navlinks a {
@@ -70,9 +70,9 @@
 
 @media(min-width:1024px) {
     .navlinks {
-        padding: 0;
+        padding: 0 5px;
         margin: 0;
-        gap: 20px;
+        gap: 25px;
     }
 
     .navlinks a {
