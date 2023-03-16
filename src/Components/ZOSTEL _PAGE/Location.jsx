@@ -1,6 +1,6 @@
 import { Box, Heading, Text, Flex, Button, Spacer, VStack } from "@chakra-ui/react";
 import { FaWhatsapp } from "react-icons/fa"
-import {BiDirections} from "react-icons/bi"
+import { BiDirections } from "react-icons/bi"
 import { Menu, MenuButton, MenuList, MenuItem, } from "@chakra-ui/react"
 import { ChevronDownIcon } from '@chakra-ui/icons'
 
@@ -26,69 +26,69 @@ const LocationCom = () => {
 
                     <Menu >
                         <MenuButton as={Button} rightIcon={<ChevronDownIcon />} justify="space-between" w="350px" mt="30px" fontSize="2xl" color="#4d585b;">
-                         Directions
+                            Directions
                         </MenuButton>
                         <MenuList w="350px">
                             <MenuItem mb="20px">Ask for Vijay Amusement part. Walk North on Beach Road for 500 meters, and you’ll reach a junction. On the opposite right corner, you will find Zostel Alleppey.</MenuItem>
                             <MenuItem mb="20px">
-                            <Heading fontSize="0xl">From the Alleppey Railway Station:</Heading> 2.5 km; ~INR 85 for a tuk-tuk to Zostel Alleppey.
-                         </MenuItem>
-                         <MenuItem mb="20px">
-                        <Heading fontSize="0xl">From the Bus Stand Jetty:</Heading> 4 km; ~INR 100 for a tuk-tuk to Zostel Alleppey.
-                         </MenuItem>
-                         <MenuItem mb="20px">
-                         <Heading fontSize="0xl">From Kochi Airport: </Heading> 85 km, 2 hrs; ~INR 2500 for a cab to Zostel Alleppey.
-                         </MenuItem>
+                                <Heading fontSize="0xl">From the Alleppey Railway Station:</Heading> 2.5 km; ~INR 85 for a tuk-tuk to Zostel Alleppey.
+                            </MenuItem>
+                            <MenuItem mb="20px">
+                                <Heading fontSize="0xl">From the Bus Stand Jetty:</Heading> 4 km; ~INR 100 for a tuk-tuk to Zostel Alleppey.
+                            </MenuItem>
+                            <MenuItem mb="20px">
+                                <Heading fontSize="0xl">From Kochi Airport: </Heading> 85 km, 2 hrs; ~INR 2500 for a cab to Zostel Alleppey.
+                            </MenuItem>
                         </MenuList>
-                        
+
                     </Menu>
 
-                    <Button mt="30px" w="350px" fontSize="2xl" color="#f15824"  bg="#e2e8f0" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" >
+                    <Button mt="30px" w="350px" fontSize="2xl" color="#f15824" bg="#e2e8f0" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" >
                         <BiDirections color="#f15824" />
-                       Get Direction
+                        Get Direction
                     </Button>
                 </Box>
-              <Box border="1px solid black">
+                <Box border="1px solid black">
 
-              </Box>
+                </Box>
             </Flex>
 
 
 
             <Box>
                 <Heading mb="20px" mt="35px">
-                Property Policy
+                    Property Policy
                 </Heading>
                 <Text>
-                - Guests are required to pay a 21% advance at the time of booking itself. The entire balance needs to be cleared upon arrival at the property during check-in.
+                    - Guests are required to pay a 21% advance at the time of booking itself. The entire balance needs to be cleared upon arrival at the property during check-in.
                 </Text>
                 <Text>- Our standard check-in time is 12 PM and the standard check-out time is 10 AM. Early check-in and late check-out requests are subject to availability, and may also attract an additional fee at the property's discretion.</Text>
                 <Text>- We strictly DO NOT allow a group of more than 8 people. In case of a group of 4 or more, you might be purposefully allotted different dorm rooms. Further, if the group behaviour is deemed unfit at the property, the Zostel Property Manager, upon subjective evaluation, retains the full right to take required action which may also result in an on-spot cancellation without refunds.</Text>
                 <Text>
-                - Children below 18 years of age are not permitted entry/stay at any of our hostels, with or without guardians. We do not recommend families.
+                    - Children below 18 years of age are not permitted entry/stay at any of our hostels, with or without guardians. We do not recommend families.
                 </Text>
                 <Text>
-                - We only accept a government ID as valid identification proof. No local IDs shall be accepted at the time of check-in.
+                    - We only accept a government ID as valid identification proof. No local IDs shall be accepted at the time of check-in.
                 </Text>
                 <Text>
-                - Guests are not permitted to bring outsiders inside the hostel campus.
+                    - Guests are not permitted to bring outsiders inside the hostel campus.
                 </Text>
                 <Text>
-                - We believe in self-help and do not provide luggage assistance or room services.
+                    - We believe in self-help and do not provide luggage assistance or room services.
                 </Text>
                 <Text>
-                - Drugs and any substance abuse is strictly banned inside and around the property.
+                    - Drugs and any substance abuse is strictly banned inside and around the property.
                 </Text>
                 <Text>
-                - Alcohol consumption is permitted at the premises as per the property’s discretion and local laws. Please reach out to the property prior to your arrival to confirm the same.
+                    - Alcohol consumption is permitted at the premises as per the property’s discretion and local laws. Please reach out to the property prior to your arrival to confirm the same.
                 </Text>
                 <Text>
-                - Right to admission reserved. 
+                    - Right to admission reserved.
                 </Text>
             </Box>
             <Box>
                 <Heading mt="30px" mb="20px">
-                Cancellation Policy
+                    Cancellation Policy
                 </Heading>
                 <Text mt="20px" mb="20px">We understand that sometimes plans change. Hence, to make it light on your pocket, we are only charging a 21% advance, which is on a non-refundable basis.</Text>
                 <Text>Note</Text>

@@ -2,3 +2,94 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+.navlinks a:hover {
+    color: rgb(241, 88, 36);
+}
+
+.navlinks p:hover {
+    color: rgb(241, 88, 36);
+}
+
+.MenuList button {
+    background: #0A181D;
+    color: white;
+    padding: 10px;
+}
+
+.MenuList {
+    background: #0A181D;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.MenuList-zostel {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: none;
+}
+
+.MenuList-zostel button {
+    background: #0A181D;
+    color: white;
+}
+
+.chakra-text div {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+}
+
+@media (min-width:375px) {}
+
+@media (min-width:425px) {}
+
+@media (min-width:960px) {
+    .navlinks {
+        gap: 15px;
+    }
+
+    .navlinks a {
+        font-size: .8rem;
+    }
+
+    .navlinks p {
+        margin: 0;
+    }
+
+    .dropdown_links {
+        font-size: .8rem;
+    }
+
+    .MenuList {
+        height: 200vh;
+    }
+}
+
+@media(min-width:1024px) {
+    .navlinks {
+        padding: 0 5px;
+        margin: 0;
+        gap: 25px;
+    }
+
+    .navlinks a {
+        font-size: .8rem;
+    }
+
+    .dropdown_links {
+        font-size: .8rem;
+    }
+}
+
+@media(min-width:1200px) {
+    .navlinks a {
+        font-size: 1rem;
+    }
+
+    .dropdown_links {
+        font-size: 1rem;
+    }
+}
