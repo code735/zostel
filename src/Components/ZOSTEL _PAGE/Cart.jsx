@@ -14,11 +14,11 @@ const CartCom = () => {
                     </Box>
                   
                     <Select placeholder='INR' color="#f15824" mt="35px" w="100px">
-                    
-                        <option value='option1'>GER</option>
+                         <option value='option1'>GER</option>
                         <option value='option2'>EURO</option>
                         <option value='option3'>USD</option>
                     </Select>
+                    
                 </Flex>
             </Box>
         </Box>
