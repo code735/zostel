@@ -1,0 +1,9 @@
+.tablist {
+    border-bottom: 1px solid grey;
+}
+
+.tablist p {
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
