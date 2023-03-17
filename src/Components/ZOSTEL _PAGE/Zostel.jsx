@@ -11,10 +11,12 @@ import {ChevronRightIcon} from "@chakra-ui/icons"
 import LocationCom from './Location'
 import CartCom from './Cart'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, } from '@chakra-ui/react'
+import { NavLink } from 'react-router-dom'
 
 export default function Zostel() {
   return (
     <div>
+      <NavLink to="/payment"><Button>Payment</Button></NavLink>
       <Box width="80%" m="20px auto">
         <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
           <BreadcrumbItem>
