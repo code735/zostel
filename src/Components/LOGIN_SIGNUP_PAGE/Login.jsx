@@ -46,30 +46,30 @@ export default function Login() {
     event.preventDefault();
     setSubmitedform(true);
     console.log("otp:", otp);
-    if(otp==submittedotp){
-        toast({
-            position:"top",
-            title: 'Successfully Logged In 😊 ',
-            description: "We've created your account for you!",
-            status: 'success',
-            duration: 8000,
-            isClosable: true,
-          })
-        setTimeout(() => {
-            setSubmitedform(false);
-            navigate("/");
-        }, 1000);
-    }else{
-        toast({
-            position:"top",
-            title: 'WRONG OTP',
-            description: "OTP Doesnt Match, Try Again !",
-            status: 'error',
-            duration: 3000,
-            isClosable: true,
-          })
+    if (otp == submittedotp) {
+      toast({
+        position: "top",
+        title: 'Successfully Logged In 😊 ',
+        description: "We've created your account for you!",
+        status: 'success',
+        duration: 8000,
+        isClosable: true,
+      })
+      setTimeout(() => {
         setSubmitedform(false);
-        
+        navigate("/");
+      }, 1000);
+    } else {
+      toast({
+        position: "top",
+        title: 'WRONG OTP',
+        description: "OTP Doesnt Match, Try Again !",
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      })
+      setSubmitedform(false);
+
     }
   };
 
@@ -123,6 +123,19 @@ export default function Login() {
     //     duration: 9000,
     //     isClosable: true,
     //   })
+    //     },
+    //     (error) => {
+    //     toast({
+    //         position:"top",
+    //         title: 'FAILED TO SEND OTP',
+    //         description: "Server Issues!! Try Again After Some Time",
+    //         status: 'error',
+    //         duration: 3000,
+    //         isClosable: true,
+    //       })
+    //       console.log(error.text);
+    //     }
+    //   );
     //     },
     //     (error) => {
     //     toast({
