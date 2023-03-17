@@ -62,10 +62,6 @@
     .dropdown_links {
         font-size: .8rem;
     }
-
-    .MenuList {
-        height: 200vh;
-    }
 }
 
 @media(min-width:1024px) {
