@@ -3,6 +3,7 @@ import './App.css';
 import Navbar from './Router/Navbar';
 import { useDispatch, useSelector } from 'react-redux';
 import AllRoutes from './Router/AllRoutes';
+import Footer from './Components/ZOSTEL _PAGE/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function App() {
     <div className="App">
       <Navbar/>
       <AllRoutes/>
+      <Footer/>
     </div>
   );
 }

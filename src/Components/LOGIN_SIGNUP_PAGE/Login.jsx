@@ -96,13 +96,13 @@ export default function Login() {
 
 
     toast({
-      position: "top",
-      title: `OTP sent to ${form.current.user_email.value}`,
-      description: `We've sent OTP-${OTP}`,
-      status: 'success',
-      duration: 9000,
-      isClosable: true,
-    })
+        position:"top",
+        title: `OTP sent to ${form.current.user_email.value}`,
+        description: `We've sent OTP-${OTP}`,
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
 
 
     // emailjs
@@ -123,6 +123,19 @@ export default function Login() {
     //     duration: 9000,
     //     isClosable: true,
     //   })
+    //     },
+    //     (error) => {
+    //     toast({
+    //         position:"top",
+    //         title: 'FAILED TO SEND OTP',
+    //         description: "Server Issues!! Try Again After Some Time",
+    //         status: 'error',
+    //         duration: 3000,
+    //         isClosable: true,
+    //       })
+    //       console.log(error.text);
+    //     }
+    //   );
     //     },
     //     (error) => {
     //     toast({
