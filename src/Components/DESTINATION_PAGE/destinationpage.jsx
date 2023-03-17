@@ -34,7 +34,7 @@ function Destinationpage() {
     </Center>:
     <Stack m={"auto"} w="80%" mt={10}>
       {/* Header  */}
-      <HStack  fontSize={{ sm: '30', md:"38",lg: '38',xl:"38" }} fontWeight={"bold"}>
+      <HStack  fontSize={{ sm: '30', md:"32",lg: '32',xl:"32" }} fontWeight={"bold"}>
         <Text as={"h1"}>Explore</Text>
         <Text as={"strong"} color={"#F15824"}>
           Destinations
