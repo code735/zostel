@@ -9,14 +9,27 @@ img {
   width: 100%;
 }
 
+input:focus {
+  outline: none !important;
+}
+
+input:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+input {
+  user-select: none;
+}
 
 body::-webkit-scrollbar {
-  background: white;
+  background: transparent;
   width: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: #0A181D;
+  border-radius: 4px;
+  background: #f15824;
 }
 
 .mobile_slide {
