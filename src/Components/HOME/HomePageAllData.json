@@ -1,0 +1,168 @@
+{
+  "whatsnew": [
+    {
+      "img": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230313122002.jpeg",
+      "title": "Zostel Sissu is back!",
+      "desc": "Explore an enchanting getaway amid Sissu’s untouched nature this summer."
+    },
+    {
+      "img": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230313121912.jpeg",
+      "title": "Zostel Manali (Vashisht) returns!",
+      "desc": "Beat the heat in Vashisht, Manali, perfect for an adventure-packed escape."
+    },
+    {
+      "img": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230222124747.jpg",
+      "title": "Exploring Spiti Valley: Spring Edition",
+      "desc": "Spring has arrived in the upper Himalayas, making it the perfect time to explore the stunning Spiti Valley."
+    },
+    {
+      "img": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230303091012.jpg",
+      "title": "Wonders of South India",
+      "desc": "Embark on a journey exploring some of India’s best destinations and immerse yourself in the lush green landscapes unlike anything you've seen before."
+    },
+    {
+      "img": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230301141445.jpg",
+      "title": "Reintroducing Zostel Homes Pushkar!",
+      "desc": "Zostel Homes Pushkar has undergone a transformation and is now ready to host travelers in its all-new avatar!"
+    }
+  ],
+  "experiences": [
+    {
+      "name": "Exploring Spiti Valley: Spring edition | 15th April to 22nd April 2023",
+      "destination": "Spiti",
+      "price": "₹ 24999 onwards",
+      "duration": "8 Days",
+      "image_url": "https://img.cdn.zostel.com/zostel/gallery/images/hWJ5t3LwRZq6-dwV_jXiIA/exploring-spiti-valley-spring-edition-15th-_XxyAiVI.jpg"
+    },
+    {
+      "name": "Exploring Spiti Valley: Spring edition | 1st April to 8th April 2023",
+      "destination": "Spiti",
+      "price": "₹ 24999 onwards",
+      "duration": "8 Days",
+      "image_url": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230301141445.jpg"
+    },
+    {
+      "name": "Wonders of South India - 8th to 14th April 2023",
+      "destination": "Bangalore",
+      "price": "₹ 17500 onwards",
+      "duration": "7 Days",
+      "image_url": "https://img.cdn.zostel.com/zostel/gallery/images/H1vWqnIrQ-Gu1yTUYqPrhA/wonders-of-south-india-8th-to-14th-april-20_6RVOKCR.jpg"
+    },
+    {
+      "name": "Exploring Spiti Valley: Spring edition | 29th April to 06th May 2023",
+      "destination": "Spiti",
+      "price": "₹ 24999 onwards",
+      "duration": "8 Days",
+      "image_url": "https://img.cdn.zostel.com/zostel/cards/whats_new/None/20230303091012.jpg"
+    },
+    {
+      "name": "Explore Meghalaya | 8th - 14th April 2023 | A trip to Northeast India",
+      "destination": "Guwahati",
+      "price": "₹ 17500 onwards",
+      "duration": "7 Days",
+      "image_url": "https://img.cdn.zostel.com/zostel/gallery/images/7t3EJiz4Txe4GGBuqQNzEw/explore-meghalaya-8th-14th-april-2023-a-tri_j8zlojC.jpg"
+    }
+  ],
+  "northern_playlist": [
+    {
+      "name": "Manali",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/D3heeR2oQGWYbzDudHlb7g/the-ultimate-adventure-destination-20201112102009.jpg?h=400"
+    },
+    {
+      "name": "Spiti",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/6E9hY5Y2TUmqpfgkJhEmmA/spiti-20230215131549.png?h=400"
+    },
+    {
+      "name": "Bir",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/Au2EbwKgSbm7VRBzFhzwIg/taste-adventure-in-the-himalayas-of-bir-202_H7vz0yf.jpg?h=400"
+    },
+    {
+      "name": "Chitkul",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/0wlj3wscTd-7gpMeKkSinA/a-pure-hidden-gem-of-the-himalayas-20201112102045.jpg?h=400"
+    },
+    {
+      "name": "Dalhousie",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/lIJKYWeJTHeGQuLr-W-H5Q/dalhousie-20230223110356.png?h=400"
+    },
+    {
+      "name": "Rishikesh",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/pV8Zu4TVQbeSL59nrusJeA/get-spiritual-adventurous-in-this-city-by-t_xbL6gM3.jpg?h=400"
+    },
+    {
+      "name": "Nainital",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/l0ZziDVVTHGBHlMjCFGWfA/nainital-20220425094011.jpg?h=400"
+    },
+    {
+      "name": "Mussoorie",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/s1T-TU6dSDmNwo7l5oN_FA/mountain-vibes-meet-city-hustle-in-mussoori_9qo0Puk.jpg?h=400"
+    }
+  ],
+  "southern_playlist": [
+    {
+      "name": "Wayanad",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/gzl52CwDTOapZZx1su1P4A/a-scenic-hill-station-in-the-truest-sense-2_Do05hrG.jpg?h=400"
+    },
+    {
+      "name": "Mysore",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/2sebkMshRAGGtfIlFRMpgA/the-city-of-glory-great-food-and-yoga-20201_4LDGqHE.jpg?h=400"
+    },
+    {
+      "name": "Varkala",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/lOb-_CyoSCyq7VBpGYhehg/varkala-20230223113317.png?h=400"
+    },
+    {
+      "name": "Coorg",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/nFSCCFyoT1On6QD2gG3SHQ/greenery-is-found-at-its-best-in-coorg-2020_o86HXBS.jpg?h=400"
+    },
+    {
+      "name": "Munnar",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/zCbvz5tVTc2uZ_C99Cen0A/munnar-20230223112326.png?h=400"
+    },
+    {
+      "name": "Kochi",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/q2_1UJRKRi-JA5URnsYlrw/a-city-of-eclectic-cultures-mounuments-and-_8br8xkb.jpg?h=400"
+    },
+    {
+      "name": "Kodaikanal",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/EsIbErltRXGlh2pPghv4dA/kodaikanal-20230223111433.png?h=400"
+    },
+    {
+      "name": "Vagamon",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/d9HAAgIgTbOwLh-ykkl0AA/vagamon-20230223113203.png?h=400"
+    }
+  ],
+  "weekend_singles": [
+    {
+      "name": "Jodhpur",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/kgEw5wMFRlKoyE2kyHW83A/jodhpur-20230223111049.png?h=400"
+    },
+    {
+      "name": "Jaipur",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/Du8SGQOGTf2fv801B28URw/the-pink-city-swarms-with-exceptional-monum_cvNBOwX.jpg?h=400"
+    },
+    {
+      "name": "Shimla",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/ShXfSgWcTLW0N-i9pVxssA/enchanting-with-its-buildings-sunsets-snow-_BnwMZ62.jpg?h=400"
+    },
+    {
+      "name": "Aurangabad",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/JvRwM3NRTYSzsz5R1Y1eKg/aurangabad-20230223105304.png?h=400"
+    },
+    {
+      "name": "Udaipur",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/GrUKDuZ9RYyF46Ey0bRuSw/udaipur-20230223113047.png?h=400"
+    },
+    {
+      "name": "Pushkar",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/J7PbcazUTOeSYUh3AzfSXg/pushkar-20230223112847.png?h=400"
+    },
+    {
+      "name": "Nainital",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/l0ZziDVVTHGBHlMjCFGWfA/nainital-20220425094011.jpg?h=400"
+    },
+    {
+      "name": "Jaisalmer",
+      "img": "https://img.cdn.zostel.com/zostel/gallery/images/P9yiHb2tQhCkRgJivi-fDw/jaisalmer-20230223110819.png?h=400"
+    }
+  ]
+}
