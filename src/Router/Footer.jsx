@@ -52,19 +52,19 @@ const Footer = () => {
           letterSpacing="2px"
           color={"#CBD5E0"}
           mb={"5"}>USEFUL LINKS</Text>
-        <HStack spacing={{ sm: "10", md: "15", lg: "20", xl: "20" }}>
-          <VStack >
+        <HStack spacing={{ sm: "10", md: "150", lg: "20", xl: "30" }} alignItems='flex-start' >
+          <VStack alignItems='left'>
             <Link href="#">Guest Policy</Link>
             <Link href="#">Privacy Policy</Link>
             <Link href="#">Careers</Link>
-          </VStack>
-          <VStack>
+          </VStack >
+          <VStack alignItems='left'>
             <Link href="#">Destinations</Link>
             <Link href="#">Franchise</Link>
             <Link href="#">Contact Us</Link>
             <Link href="#">Cookie Policy</Link>
           </VStack>
-          <VStack>
+          <VStack alignItems='left'>
             <Link href="#">About Us</Link>
             <Link href="#">Support</Link>
             <Link href="#">Terms</Link>
