@@ -3,7 +3,6 @@ import { HStack, Text, Card, Image, Link, SimpleGrid, Box } from '@chakra-ui/rea
 import data from './HomePageAllData.json'
 
 export default function PlayList() {
-    console.log(data)
     return (
         <div>
             <Box>
