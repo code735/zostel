@@ -182,7 +182,7 @@ export default function Login() {
             onSubmit={sendEmail}
           >
             <VStack spacing={4} w="100%">
-              <FormControl id="email">
+              <FormControl id="email" isRequired>
                 <FormLabel>Email</FormLabel>
                 <Input
                   rounded="md"
@@ -232,10 +232,11 @@ export default function Login() {
           <ModalBody>
             <form onSubmit={handleSubmit}>
               <Stack spacing={3}>
-                <FormControl>
+                <FormControl isRequired>
                   <FormLabel>Enter 5-Digit OTP Pin</FormLabel>
                   <PinInput
                     placeholder="_"
+                    isRequired
                     onChange={(e) => setSubmittedOTP(e)}
                   >
                     <PinInputField />
