@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import Slideshow from '../Slidershow'
 import { Text, Tabs, TabPanels, TabList, Tab, TabPanel, Box, Stack, Button, Input, Flex, HStack, VStack } from '@chakra-ui/react'
@@ -6,13 +6,21 @@ import { MdArrowRightAlt } from 'react-icons/md'
 import { useColorMode } from '@chakra-ui/react'
 import './Home.css'
 import ExploreDest from './ExploreDest'
+import PreLoader from '../PreLoader'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const { colorMode, toggleColorMode } = useColorMode();
+  const [loading, setLoading] = useState(false)
+  useEffect(() => {
+    setLoading(true)
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
 
   return (
-    <div>
+    <>{loading ? <PreLoader /> : <div>
       <div style={{
         position: "relative"
       }}>
@@ -70,7 +78,7 @@ export default function Home() {
                           <Text>
                             SELECT YOUR DESTINATION
                           </Text>
-                          <Input className='dest-ip' border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
+                          <Input className='dest-ip' border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' color={colorMode === 'light' ? "black" : "white"} placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
                         </Box>
                         <HStack borderBottom='1px solid #96A4A9'>
                           <VStack className='date-box'>
@@ -222,6 +230,7 @@ export default function Home() {
           </Text>
         </HStack>
       </Box>
-    </div>
+
+    </div>}</>
   )
 }
