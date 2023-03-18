@@ -6,6 +6,7 @@ import { MdArrowRightAlt } from 'react-icons/md'
 import { useColorMode } from '@chakra-ui/react'
 import './Home.css'
 import ExploreDest from './ExploreDest'
+import { useColorModeValue } from '@chakra-ui/react'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -70,7 +71,7 @@ export default function Home() {
                           <Text>
                             SELECT YOUR DESTINATION
                           </Text>
-                          <Input className='dest-ip' border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
+                          <Input className='dest-ip' border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' color={useColorModeValue("black", "white")} placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
                         </Box>
                         <HStack borderBottom='1px solid #96A4A9'>
                           <VStack className='date-box'>
