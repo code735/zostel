@@ -36,24 +36,15 @@ export default function Individual() {
       .then((res) => res.json())
       .then((d) => {
         setdata(d.destination)
-      .then((res) => res.json())
-      .then((d) => {
-        setdata(d.destination)
 
       })
-      })
   }
-  const Getblog = () => {
   const Getblog = () => {
     fetch(`https://www.zostel.com/api/v1/blogs/destination/${city}/`)
       .then((res) => res.json())
       .then((d) => {
         setdatalist(d.blogs)
-      .then((res) => res.json())
-      .then((d) => {
-        setdatalist(d.blogs)
 
-      })
       })
   }
   console.log(data)
@@ -70,7 +61,6 @@ export default function Individual() {
     </Center> :
         <div>
 
-          {/* screen display div */}
           {/* screen display div */}
 
           <div style={{
@@ -142,13 +132,7 @@ export default function Individual() {
                   <div className={prop.containers}>
                     <div className={prop.left} >
                       <img src={ele.images[0].image} style={{ width: "100%", height: "430px", borderRadius: "8px" }} alt="gdfgd" />
-                  <div className={prop.containers}>
-                    <div className={prop.left} >
-                      <img src={ele.images[0].image} style={{ width: "100%", height: "430px", borderRadius: "8px" }} alt="gdfgd" />
 
-                    </div>
-                    <div className={prop.right}>
-                      <div>
                     </div>
                     <div className={prop.right}>
                       <div>
@@ -162,14 +146,7 @@ export default function Individual() {
                         </div>
                       </div>
                     </div>
-                    </div>
 
-                  </div>
-                )
-              })}
-
-              <div style={{ margin: "4% 5%", border: " 1px solid grey", borderRadius: "8px", overflow: "hidden" }}>
-                {/* <div  style={{position:"relative",textAlign:"right",height:"400px",width:"100%",borderRadius:"8px"}}>
                   </div>
                 )
               })}
@@ -179,19 +156,12 @@ export default function Individual() {
                            <div style={{overflow:"hidden",background:"none!important",height:"400px",width:"100%",borderRadius:"8px"}}>
                              */}
                 <iframe style={{ width: "100%", height: "400px", borderRadius: "8px" }} src={mapo} >
-                <iframe style={{ width: "100%", height: "400px", borderRadius: "8px" }} src={mapo} >
 
-                </iframe>
-                {/* </div>
                 </iframe>
                 {/* </div>
                          </div> */}
               </div>
-              </div>
 
-
-
-            </div>
 
 
             </div>
@@ -201,13 +171,7 @@ export default function Individual() {
               width: "5%", backgroundImage: `url(${data.graphic_right})`, opacity: "0.2", backgroundPosition: 'center',
               backgroundRepeat: 'repeat',
             }}>
-            <div style={{
-              width: "5%", backgroundImage: `url(${data.graphic_right})`, opacity: "0.2", backgroundPosition: 'center',
-              backgroundRepeat: 'repeat',
-            }}>
 
-            </div>
-          </div>
             </div>
           </div>
 
