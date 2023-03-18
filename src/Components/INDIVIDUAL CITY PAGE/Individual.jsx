@@ -27,8 +27,8 @@ export default function Individual() {
 
  
   let City= useParams();
-  let cite = City.city
-  let city = "delhi"
+  let city = City.city
+  
   let mapo = (`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`)
   const Getdata = () => {
     console.log("yha hai")
