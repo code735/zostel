@@ -68,7 +68,7 @@ export default function Individual() {
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            width: '100vw',
+            width: '100%',
             height: '100vh',
             position: "relative"
           }}>
