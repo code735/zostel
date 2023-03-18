@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import Slideshow from '../Slidershow'
 import { Text, Tabs, TabPanels, TabList, Tab, TabPanel, Box, Stack, Button, Input, Flex, HStack, VStack } from '@chakra-ui/react'
 import { MdArrowRightAlt } from 'react-icons/md'
@@ -25,6 +25,20 @@ export default function Home() {
       setLoading(false)
     }, 2000)
   }, [])
+
+  const [city,setCity]=useState("")
+  const navigate = useNavigate()
+
+  const inputcity=(e)=>{
+    setCity(e.target.value)
+    // console.log("e: ", e);
+
+  }
+
+  const citysubmit=(e)=>{
+    e.preventDefault()
+    navigate(`/destination/${city}`)
+  }
 
   return (
     <>{loading ? <PreLoader /> : <div>
@@ -85,7 +99,7 @@ export default function Home() {
                           <Text>
                             SELECT YOUR DESTINATION
                           </Text>
-                          <Input className='dest-ip' border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' color={colorMode === 'light' ? "black" : "white"} placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
+                          <Input className='dest-ip' onChange={inputcity} border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' color={colorMode === 'light' ? "black" : "white"} placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
                         </Box>
                         <HStack borderBottom='1px solid #96A4A9'>
                           <VStack className='date-box'>
@@ -105,8 +119,8 @@ export default function Home() {
                           </VStack>
                         </HStack>
                       </Stack>
-                      <NavLink to='/individual'>
-                        <Button bg='#F15824' color='white' py='1.3rem' m={{ sm: "10px", lg: "0" }} px={{ sm: "6rem" }}>
+                      <NavLink to='/destination/${city}'>
+                        <Button bg='#F15824' color='white' py='1.3rem' m={{ sm: "10px", lg: "0" }} px={{ sm: "6rem" }} onClick={citysubmit}>
                           Book Now
                         </Button>
                       </NavLink>

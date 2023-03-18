@@ -1,3 +1,4 @@
+import { Text } from '@chakra-ui/react'
 import React from 'react'
 import { Routes, Route } from 'react-router'
 import Destinationpage from '../Components/DESTINATION_PAGE/destinationpage'
@@ -14,11 +15,12 @@ export default function AllRoutes() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/destination' element={<Destinationpage />} />
-        <Route path='/individual' element={<Individual />} />
+        <Route path='/destination/:city' element={<Individual />} />
         <Route path='/zostel' element={<Zostel />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/login' element={<Login />} />
         <Route path='/payment' element={<Payment />} />
+        <Route path='/*' element={<Text bg={"red.700"} fontSize="5xl">404 Not Found</Text>} />
       </Routes>
     </div>
   )
