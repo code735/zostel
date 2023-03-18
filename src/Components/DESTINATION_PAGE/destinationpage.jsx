@@ -14,6 +14,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import PreLoader from "../PreLoader";
 import data from "./Explore Destinations _ Zostel.json"
 function Destinationpage() {
@@ -74,7 +75,7 @@ function Destinationpage() {
                   color="white"
                   fontSize={"2xl"}
                 >
-                  {e.Title=="Bangalore"||e.Title=="Delhi"?<Link href="#">{e.Title}</Link>:e.Title}
+                  {<NavLink to={`/destination/${e.Title}`}>{e.Title}</NavLink>}
                 </Text>
               </Card>
             );
