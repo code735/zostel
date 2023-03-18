@@ -15,7 +15,7 @@ export default function PlayList() {
                 </HStack>
                 <SimpleGrid columns={{ sm: '1', md: "2", lg: '3', xl: "5" }} placeItems={{ sm: "center" }} spacing={3}>
                     {data.northern_playlist.map((e) => {
-                        return <Card position="relative">
+                        return <Card w='100%' position="relative">
                             <Image
                                 src={e.img}
                                 alt="Green double couch with wooden legs"
@@ -48,7 +48,7 @@ export default function PlayList() {
                 </HStack>
                 <SimpleGrid columns={{ sm: '1', md: "2", lg: '3', xl: "5" }} placeItems={{ sm: "center" }} spacing={3}>
                     {data.southern_playlist.map((e) => {
-                        return <Card maxW="sm" position="relative">
+                        return <Card w='100%' position="relative">
                             <Image
                                 src={e.img}
                                 alt="Green double couch with wooden legs"
@@ -81,7 +81,7 @@ export default function PlayList() {
                 </HStack>
                 <SimpleGrid columns={{ sm: '1', md: "2", lg: '3', xl: "5" }} placeItems={{ sm: "center" }} spacing={3}>
                     {data.weekend_singles.map((e) => {
-                        return <Card maxW="sm" position="relative">
+                        return <Card w='100%' position="relative">
                             <Image
                                 src={e.img}
                                 alt="Green double couch with wooden legs"
