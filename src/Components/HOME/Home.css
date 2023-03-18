@@ -7,13 +7,8 @@
 }
 
 input::placeholder {
-  font-weight: 600;
+  font-weight: 500;
   color: #b5c1cf;
-}
-
-input:focus {
-  outline: none !important;
-  border: none;
 }
 @media (min-width: 320px) {
   .main-tab-box {
@@ -53,6 +48,12 @@ input:focus {
 
 @media (min-width: 1200px) {
   .main-tab-box {
-    width: 75%;
+    width: 70%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main-tab-box {
+    width: 60%;
   }
 }
