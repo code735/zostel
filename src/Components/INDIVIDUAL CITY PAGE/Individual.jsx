@@ -1,10 +1,13 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import { json, NavLink } from 'react-router-dom'
+import { json, NavLink, useParams } from 'react-router-dom'
 import prop from "./indivdual.module.css"
 import parse from 'html-react-parser';
+import Navbar from '../../Router/Navbar';
+import PreLoader from "../PreLoader";
 
-import { Box, Badge, SimpleGrid, Container, Image, Link, Text, Button, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from '@chakra-ui/react';
+
+import { Box, Badge, SimpleGrid, Container, Image, Link, Text, Button, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Center } from '@chakra-ui/react';
 import {
   chakra,
 
@@ -19,10 +22,12 @@ import {
 export default function Individual() {
   const [data, setdata] = useState()
   const [dataList, setdatalist] = useState([])
+  const[show,setshow] = useState(false)
 
 
-
-
+ 
+  let City= useParams();
+  let cite = City.city
   let city = "delhi"
   let mapo = (`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`)
   const Getdata = () => {
@@ -50,7 +55,10 @@ export default function Individual() {
   }, [])
   return (
     <>
-      {data == undefined ? "loading" :
+      {data == undefined ?  <Center h={"100vh"}>
+    {/* //preloader */}
+    <PreLoader/>
+    </Center> :
         <div>
 
           {/* screen display div */}
@@ -64,26 +72,13 @@ export default function Individual() {
             height: '100vh',
             position: "relative"
           }}>
+            {/* <Navbar/> */}
             <img src="" alt="" />
             <h2 style={{
               textAlign: "center", margin: "0", padding: "0", position: "absolute", top: "50%", left: "50%",
               transform: 'translateX(-50%)', color: "white", fontSize: "3em", fontWeight: "bold"
             }}>{data.name}</h2>
           </div>
-          <Box>
-            <Breadcrumb separator="->" mb={"5"}>
-              <BreadcrumbItem>
-                <BreadcrumbLink href="/">Home</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href="/destination">Destinations</BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbItem isCurrentPage>
-                <BreadcrumbLink href="#">{city}</BreadcrumbLink>
-              </BreadcrumbItem>
-            </Breadcrumb>
-
-          </Box>
 
           {/* side images or middle div start here */}
 
@@ -96,32 +91,42 @@ export default function Individual() {
 
 
             <div style={{ width: "90%", position: "relative" }}>
+              <Box mt={"3%"}>
+                <Breadcrumb separator="->" mb={"5"}>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbItem isCurrentPage>
+                    <BreadcrumbLink href="/destination">Destinations</BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbItem isCurrentPage>
+                    <BreadcrumbLink href="#">{data.name}</BreadcrumbLink>
+                  </BreadcrumbItem>
+                </Breadcrumb>
+
+              </Box>
+              <div style={show?{justifyContent:"center", height: "auto"}:{ overflow:"hidden",  height: "15em"}}>
+
               <h1 style={{ textAlign: "center", fontSize: "2.2em", fontWeight: "bold", marginTop: "2%" }}>Welcome to</h1>
-              <h1 style={{ textAlign: "center", fontSize: "2.8em", color: "tomato", fontWeight: "bold" }}>{data.name}</h1>
+              <h1 style={{ textAlign: "center", fontSize: "2.8em", color: "#FF6347", fontWeight: "bold" }}>{data.name}</h1>
               <p style={{ textAlign: "center", margin: "0 15%" }}> {parse(data.description)}</p>
+            
+
+              </div>
+              
+
+              <button style={{color:"tomato",position:"absolute",transform: "translateX(-50%)",left:"50%"}} onClick={()=>setshow(!show)}>{show?"show less":"show More"}</button>
+            
 
 
-
-              {/* {show ? <div> <h1 style={{ textAlign: "center", fontSize: "1.8em" }}>Why we love aurangabad</h1>
-              <p style={{ textAlign: "center", margin: "0 15%" }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque architecto reprehenderit sunt
-                corrupti dolorem. Error consequuntur earum aut. Expedita neque maxime optio molestias
-                a adipisci ipsam laudantium facere ex vitae. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nisi,
-                ad. Dolorum neque sed modi doloribus. Voluptatum mollitia at alias corrupti fuga voluptatem, fugiat,
-                laboriosam, magni sunt aspernatur quidem sapiente dolor!
-              </p>
-
-              <h1 style={{ textAlign: "center", fontSize: "1.8em" }}>Fun Facts</h1>
-              <p style={{ textAlign: "center", margin: "0 15%" }}>Lorem ipsum dolor sit amet consectetur adipisicing elit. In qui iste ad minima iusto repellat ab quia reprehenderit maxime recusan
-                dae nihil, laborum veniam magnam. Dolore debitis laborum ex facere laudantium?</p>
-            </div>
-              : <p style={{ textAlign: "center", margin: "0 15%" }}>...</p>
-            }
-            <button onClick={() => setshow(!show)}
-              style={{ margin: "0", padding: "0.6em", position: "absolute", left: "50%", transform: 'translateX(-50%)', background: "transparent", border: "none", color: "red", cursor: "pointer" }}>
-              {show ? "show less" : "show more"}</button> */}
-
-              <h1 style={{ textAlign: "center", margin: "2% 15%", fontSize: "2.2em", fontWeight: "bold" }}>Stays At <span style={{ color: "tomato", fontSize: "1.3em" }}>{data.name}</span> </h1>
+              <h1 style={{ textAlign: "center", margin: "2% 15%", fontSize: "2.2em", fontWeight: "bold",marginBottom:"2%",marginTop:"35px" }}>Stays At <span style={{ color: "tomato", fontSize: "1.3em" }}>{data.name}</span> </h1>
               {data.operators.map((ele) => {
+                
+                 let price = Math.random() * (999 - 449) + 449;
+                 price=price.toFixed(0)
+                
+                 console.log(price)
+
                 return (
 
                   <div className={prop.containers}>
@@ -133,11 +138,11 @@ export default function Individual() {
                       <div>
 
                         <h2 style={{ color: "grey", fontWeight: "bold", fontSize: "1.26em" }}>Zostal</h2>
-                        <h1 style={{ fontWeight: "bold", fontSize: "2em" }}>{ele.name}</h1>
-                        <p style={{ fontWeight: "bold", color: `rgb(105,105,105)`, marginTop: "2%" }}>{ele.short_description}</p>
+                        <h1 style={{ fontWeight: "bold", fontSize: "2em",color:"black" }}>{ele.name}</h1>
+                        <p style={{ fontWeight: "bold", color: `#4D585B`, marginTop: "2%" }}>{ele.short_description}</p>
                         <div style={{ display: "flex", textAlign: "right", marginTop: "10%" }}>
 
-                          <p style={{ textAlign: "left", fontWeight: "bold" }}>Starting from &#8377; 499</p><Button style={{ textAlign: "right", marginLeft: "40%", backgroundColor: "tomato" }}><NavLink to="/zostel">View Now</NavLink>&nbsp;&#8594;</Button>
+                          <p style={{ textAlign: "left", fontWeight: "bold" , color:"black" }}>Starting from  <span style={{color:"tomato",fontSize:"1.1em"}}>&#8377;{price}</span></p> <Button _hover={{ bg: "white", color: "tomato" }} ml={"40%"} color="white" bg="tomato"><NavLink to="/zostel" style={{ textDecoration: "none" }}>View &nbsp;&#8594;</NavLink>&nbsp;</Button>
                         </div>
                       </div>
                     </div>
@@ -171,11 +176,11 @@ export default function Individual() {
           </div>
 
 
-          <div style={{ backgroundColor: "lightcyan", padding: "1%" }}>
-            <h1 style={{ textAlign: "center", fontSize: "2.4em", }}>Latest Road </h1>
+          <div style={{ backgroundColor: "#E8F0F2", padding: "1%" }}>
+            <h1 style={{ textAlign: "center", fontSize: "2.4em",color:"black",fontWeight:"bold" }}>Latest Road </h1>
 
-            <Container maxWidth="1200px" mx="auto" my="auto" p={{ base: 5, md: 10 }}>
-              <SimpleGrid columns={[1, 2, 3]} spacing="15px">
+            <Container maxWidth="100%" mx="auto" my="auto" p={{ base: 5, md: 10 }}>
+              <SimpleGrid columns={{ sm: "1", md: "2", lg: "5", xl: "5" }} spacing="15px">
                 {dataList.map((blog) => {
                   return (
                     <Box position="relative" key={blog.id}>
@@ -188,12 +193,13 @@ export default function Individual() {
                         overflow="hidden"
                         position="relative"
                       >
-                        <Image src={blog.cover_image} alt="Blog image" />
+                        <Image src={blog.custom_cover} alt="Blog image" />
                         <Box p={{ base: 4, lg: 4 }}>
                           <Box d="flex" alignItems="baseline">
                             <Box
                               fontWeight="semibold"
                               as="h1"
+                              color={"black"}
 
                               textTransform="uppercase"
                               ml="2"
@@ -201,11 +207,7 @@ export default function Individual() {
                               {blog.title}
                             </Box>
                           </Box>
-                          <Box>
-                            <Box color="gray.600" fontSize="sm">
-
-                            </Box>
-                          </Box>
+                         
                           <Text
                             mt="1"
                             fontWeight="semibold"
