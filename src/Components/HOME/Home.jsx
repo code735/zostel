@@ -1,12 +1,30 @@
 import React, { useState, useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Slideshow from '../Slidershow'
-import { Text, Tabs, TabPanels, TabList, Tab, TabPanel, Box, Stack, Button, Input, Flex, HStack, VStack } from '@chakra-ui/react'
+import {
+  Text,
+  Tabs,
+  TabPanels,
+  TabList,
+  Tab,
+  TabPanel,
+  Box,
+  Stack,
+  Button,
+  Input,
+  Flex,
+  HStack,
+  VStack,
+  Image
+} from '@chakra-ui/react'
 import { MdArrowRightAlt } from 'react-icons/md'
 import { useColorMode } from '@chakra-ui/react'
 import './Home.css'
 import ExploreDest from './ExploreDest'
 import PreLoader from '../PreLoader'
+import WhatsNew from './WhatsNew'
+import ZostelXp from './ZostelXp'
+import PlayList from './PlayList'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -26,16 +44,16 @@ export default function Home() {
     }, 2000)
   }, [])
 
-  const [city,setCity]=useState("")
+  const [city, setCity] = useState("")
   const navigate = useNavigate()
 
-  const inputcity=(e)=>{
+  const inputcity = (e) => {
     setCity(e.target.value)
     // console.log("e: ", e);
 
   }
 
-  const citysubmit=(e)=>{
+  const citysubmit = (e) => {
     e.preventDefault()
     navigate(`/destination/${city}`)
   }
@@ -243,13 +261,39 @@ export default function Home() {
       <div>
         <ExploreDest />
       </div>
-      <Box>
+
+      {/* Whats new Section */}
+      <Box className='whatsnew' p={{ sm: "1rem", md: "3rem" }}>
+        <Box>
+          <HStack fontSize={{ sm: '30', md: "32", lg: '32', xl: "32" }} my={{ sm: "1rem", md: "0" }} mb={{ md: "3rem" }} justifyContent={{ sm: "center", md: "start" }} fontWeight={"bold"}>
+            <Text as={"h1"}>What's</Text>
+            <Text as={"strong"} color={"#F15824"}>
+              New
+            </Text>
+          </HStack>
+        </Box>
+        <WhatsNew />
+      </Box>
+
+      {/* Zostel House Baner */}
+      <Box display={{ sm: "none", lg: "block" }}>
+        <Image src='https://zo-media.s3.ap-south-1.amazonaws.com/branding/zo-world-banner.png' />
+      </Box>
+
+      {/* Zostel Experiences */}
+      <Box p={{ sm: "1rem", md: "3rem" }}>
         <HStack fontSize={{ sm: '30', md: "32", lg: '32', xl: "32" }} my={{ sm: "1rem", md: "0" }} mb={{ md: "3rem" }} justifyContent={{ sm: "center", md: "start" }} fontWeight={"bold"}>
-          <Text as={"h1"}>What's</Text>
+          <Text as={"h1"}>Zostel</Text>
           <Text as={"strong"} color={"#F15824"}>
-            New
+            Experiences
           </Text>
         </HStack>
+        <ZostelXp />
+      </Box>
+
+      {/* Playlist */}
+      <Box p={{ sm: "1rem", md: "3rem" }}>
+        <PlayList />
       </Box>
 
     </div>}</>
