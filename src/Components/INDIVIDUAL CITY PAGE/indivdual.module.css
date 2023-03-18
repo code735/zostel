@@ -9,10 +9,10 @@
 }
 .right{
     width: 50%;
-    min-height: 200px;
+    min-height: 300px;
     align-items: center;
     justify-content: center;
-    background-color: rgb(246, 248, 251);
+    background-color: #FAFEFF;
     padding: 30px;
     border-radius:8px ;
     margin-left: -4%;
