@@ -49,8 +49,7 @@ export default function Home() {
 
   const inputcity = (e) => {
     setCity(e.target.value)
-    // console.log("e: ", e);
-
+    console.log("e: ", e);
   }
 
   const citysubmit = (e) => {
