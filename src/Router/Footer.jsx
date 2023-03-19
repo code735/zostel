@@ -57,7 +57,7 @@ const Footer = () => {
             <Link href="#">Guest Policy</Link>
             <Link href="#">Privacy Policy</Link>
             <Link href="#">Careers</Link>
-          </VStack >
+          </VStack>
           <VStack alignItems='left'>
             <Link href="#">Destinations</Link>
             <Link href="#">Franchise</Link>
