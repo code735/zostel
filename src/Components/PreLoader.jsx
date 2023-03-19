@@ -38,3 +38,59 @@ export default function PreLoader() {
     </div>
   );
 }
+
+{/* <VStack justify={"start"} width="430px">
+<Text as={"h3"} fontSize="24px" fontWeight={"700"} justify={"flex-start"}>
+  Summary
+</Text>
+<Text fontSize="14px" fontWeight={"700"}>
+  1 night starting from Fri 24 Mar, 2023
+</Text>
+{cart.length > 0 ? (
+  <VStack>
+    {cart.map((ele) => {
+      return (
+        <>
+          <Text
+            width={"100%"}
+            fontSize={18}
+            fontWeight="600"
+          >
+            {ele.name}x{ele.quantity_rooms}
+          </Text>
+          <HStack
+            width={"100%"}
+            fontSize={18}
+            fontWeight="600"
+          >
+            <Text>₹{ele.price}x 1 Night</Text>
+            <Spacer></Spacer>
+            <Text>₹{ele.price}</Text>
+          </HStack>
+        </>
+      );
+    })}
+    <HStack width={"100%"} fontSize={18} fontWeight="600">
+      <Text>Tax</Text>
+      <Spacer />
+      <Text>₹96</Text>
+    </HStack>
+    <HStack width={"100%"} fontSize={18} fontWeight="600">
+      <Text>Total (tax incl.)</Text>
+      <Spacer />
+      <Text>₹895</Text>
+    </HStack>
+    <HStack width={"100%"} fontSize={18} fontWeight="600">
+      <Text>Payable Now</Text>
+      <Spacer />
+      <Text>₹188</Text>
+    </HStack>
+  </VStack>
+) : (
+  <VStack>
+    <Image src="https://book.zostel.com/static/media/gray-zobu.018014d9.svg" />
+    <Text color={"#96A4A9"}>No Room Selected </Text>
+  </VStack>
+)}
+</VStack>
+     */}
