@@ -5,7 +5,6 @@ import {
   Input,
   Stack,
   Heading,
-  useColorModeValue,
   VStack,
   Checkbox,
   Link,
@@ -21,10 +20,14 @@ import {
   Button,
   ModalCloseButton,
   useToast,
+  Center,
+  useColorMode,
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { useNavigate } from "react-router";
+import { ZostelContext } from "../../UseContext/ZostelContext";
+import PreLoader from "../PreLoader";
 
 export default function Login() {
   const form = useRef();
@@ -39,7 +42,20 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  const toast = useToast()
+  const toast = useToast();
+
+  const { setIsLogin } = React.useContext(ZostelContext);
+
+  const [loading, setLoading] = React.useState(false);
+
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  React.useEffect(()=>{
+    setLoading(true)
+    setTimeout(()=>{
+      setLoading(false)
+    },2000)
+  },[])
 
   //OTP HANDLE SUBMIT
   const handleSubmit = (event) => {
@@ -49,12 +65,15 @@ export default function Login() {
     if (otp == submittedotp) {
       toast({
         position: "top",
-        title: 'Successfully Logged In 😊 ',
+        title: "Successfully Logged In 😊 ",
         description: "We've created your account for you!",
-        status: 'success',
+        status: "success",
         duration: 8000,
         isClosable: true,
-      })
+      });
+
+      setIsLogin(true);
+
       setTimeout(() => {
         setSubmitedform(false);
         navigate("/");
@@ -62,14 +81,13 @@ export default function Login() {
     } else {
       toast({
         position: "top",
-        title: 'WRONG OTP',
+        title: "WRONG OTP",
         description: "OTP Doesnt Match, Try Again !",
-        status: 'error',
+        status: "error",
         duration: 3000,
         isClosable: true,
-      })
+      });
       setSubmitedform(false);
-
     }
   };
 
@@ -94,16 +112,14 @@ export default function Login() {
       setSubmitedform(false);
     }, 1000);
 
-
     toast({
-        position:"top",
-        title: `OTP sent to ${form.current.user_email.value}`,
-        description: `We've sent OTP-${OTP}`,
-        status: 'success',
-        duration: 9000,
-        isClosable: true,
-      })
-
+      position: "top",
+      title: `OTP sent to ${form.current.user_email.value}`,
+      description: `We've sent OTP-${OTP}`,
+      status: "success",
+      duration: 9000,
+      isClosable: true,
+    });
 
     // emailjs
     //   .sendForm(
@@ -150,7 +166,12 @@ export default function Login() {
     //     }
     //   );
   };
-  return (
+  return loading ? (
+    <Center h={"100vh"}>
+      {/* //preloader */}
+      <PreLoader />
+    </Center>
+  ) : (
     <Stack
       minH="90vh"
       direction={{ base: "column-reverse", md: "row" }}
@@ -174,7 +195,7 @@ export default function Login() {
             spacing={8}
             boxSize={{ base: "xs", sm: "sm", md: "md" }}
             h="max-content !important"
-            bg={useColorModeValue("white", "gray.700")}
+            bg={colorMode === "light" ?"white": "gray.700"}
             rounded="lg"
             boxShadow="lg"
             p={{ base: 5, sm: 10 }}
