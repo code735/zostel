@@ -1,5 +1,4 @@
 import { Box, Stack, HStack, VStack, Heading, Text, Input, Flex, Image } from "@chakra-ui/react"
-import { ChevronDownIcon } from "@chakra-ui/icons"
 import { Select } from '@chakra-ui/react'
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import { BsFillPersonFill } from "react-icons/bs"

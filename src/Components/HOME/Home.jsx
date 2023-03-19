@@ -15,7 +15,9 @@ import {
   Flex,
   HStack,
   VStack,
-  Image
+  Image,
+  InputGroup,
+  InputRightElement
 } from '@chakra-ui/react'
 import { MdArrowRightAlt } from 'react-icons/md'
 import { useColorMode } from '@chakra-ui/react'
@@ -27,6 +29,10 @@ import ZostelXp from './ZostelXp'
 import PlayList from './PlayList'
 import data from '../DESTINATION_PAGE/Explore Destinations _ Zostel.json'
 import { useColorModeValue } from '@chakra-ui/react'
+import VoiceInput from './VoiceInput'
+import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+
+import { HiOutlineMicrophone } from "react-icons/hi2";
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -61,13 +67,27 @@ export default function Home() {
   const navigate = useNavigate()
 
   const inputcity = (e) => {
+    resetTranscript(); 
     setCity(e.target.value)
   }
 
   const citysubmit = (e) => {
     e.preventDefault()
-    navigate(`/destination/${city}`)
+    let city1=""
+    city==""?city1=transcript:city1=city
+    navigate(`/destination/${city1}`)
   }
+  const { transcript, resetTranscript } = useSpeechRecognition();
+  console.log("transcript: ", transcript);
+
+
+  const handleVoiceSearch = () => {
+    if (SpeechRecognition.browserSupportsSpeechRecognition()) {
+      SpeechRecognition.startListening();
+    } else {
+      console.error("Browser does not support speech recognition.");
+    }
+  };
 
   useEffect(() => {
     const temp = [];
@@ -98,6 +118,7 @@ export default function Home() {
             height: "100%",
             flexDirection: "column",
           }}>
+          {/* <VoiceInput/> */}
           <Text as='h1' fontWeight='bold' textShadow='0px 0px 10px grey' color='white' fontSize={{ sm: '2rem', md: '4rem' }} mb={{ sm: "1rem", md: '2.5rem' }}>Live it. Now</Text>
           <Box
             className='main-tab-box'
@@ -139,20 +160,28 @@ export default function Home() {
                           <Text>
                             SELECT YOUR DESTINATION
                           </Text>
+                          <InputGroup>
                           <Input
                             className='dest-ip'
                             onChange={inputcity}
                             onFocus={handleInputFocus}
                             onBlur={handleInputBlur}
                             border='none'
+                            value={transcript==""?city:transcript}
                             pb={{ sm: "1rem" }}
                             w={{ sm: "100%", lg: "260px" }}
                             mt={{ sm: "1rem" }}
                             borderBottom='1px solid #96A4A9'
                             borderRadius='0'
                             color={colorMode === 'light' ? "black" : "white"}
-                            placeholder='eg. Manali, Jodhpur, Jaipur, etc.'
+                            placeholder='eg. Manali, Jodhpur, etc.'
                           />
+                          <InputRightElement>
+                          <Button size='xs' color={colorMode === 'light' ? "black" : "white"} mt="5" onClick={handleVoiceSearch}>
+                             <HiOutlineMicrophone/>
+                          </Button>
+                          </InputRightElement>
+                          </InputGroup>
                           {isInputSelected ? (
                             <Box position='absolute' left='0' px='5' bg={colorMode == "light" ? "white" : "#1A202C"} width='100%'>
                               {filteredData.map((e, i) => {
