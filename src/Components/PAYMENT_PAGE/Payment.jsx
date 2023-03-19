@@ -26,6 +26,7 @@ import {
   AlertIcon,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import PaymentModal from "./PaymentModal";
 
 export default function Payment() {
   const [formData, setFormData] = useState({
@@ -392,7 +393,7 @@ export default function Payment() {
               <Text>₹188</Text>
             </HStack>
             <Divider />
-            <Checkbox isChecked={formsubmit} colorScheme="orange" isRequired mt={"50px"} onChange={(e)=>console.log("eeee",e.target.checked)}>
+            <Checkbox isChecked={formsubmit} colorScheme="orange" isRequired mt={"50px"} onChange={(e) => console.log("eeee", e.target.checked)}>
               I acknowledge and accept the terms and conditions mentioned in the
               Property Policy & Cancellation Policy.
             </Checkbox>
@@ -403,6 +404,7 @@ export default function Payment() {
             >
               Reserve
             </Button>
+            <PaymentModal />
           </VStack>
         </Box>
       </Stack>
