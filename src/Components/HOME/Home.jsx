@@ -25,11 +25,24 @@ import PreLoader from '../PreLoader'
 import WhatsNew from './WhatsNew'
 import ZostelXp from './ZostelXp'
 import PlayList from './PlayList'
+import data from '../DESTINATION_PAGE/Explore Destinations _ Zostel.json'
+import { useColorModeValue } from '@chakra-ui/react'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
   const { colorMode, toggleColorMode } = useColorMode();
   const [loading, setLoading] = useState(false)
+  const [filteredData, setfilteredData] = useState()
+  const [isInputSelected, setIsInputSelected] = useState(false);
+
+  const handleInputFocus = () => {
+    setIsInputSelected(true);
+  }
+
+  const handleInputBlur = () => {
+    setIsInputSelected(false);
+  }
+
   useEffect(() => {
     setLoading(true)
     window.addEventListener('load', () => {
@@ -49,13 +62,23 @@ export default function Home() {
 
   const inputcity = (e) => {
     setCity(e.target.value)
-    console.log("e: ", e);
   }
 
   const citysubmit = (e) => {
     e.preventDefault()
     navigate(`/destination/${city}`)
   }
+
+  useEffect(() => {
+    const temp = [];
+
+    for (const item of data) {
+      if (item.Title.toLowerCase().includes(city.toLowerCase())) {
+        temp.push(item.Title);
+      }
+    }
+    setfilteredData(temp);
+  }, [city])
 
   return (
     <>{loading ? <PreLoader /> : <div>
@@ -112,11 +135,38 @@ export default function Home() {
                   <Box className='tab-box'>
                     <Flex alignItems={{ sm: "center", md: "flex-end" }} flexDir={{ sm: "column", md: "row" }} justifyContent={{ sm: "center", md: "space-between" }}>
                       <Stack direction={{ base: "column", lg: "row" }} mt={{ sm: "1rem" }} w={{ xl: "66%" }} justifyContent={{ xl: "space-between" }} color="#B5C0C4" fontWeight='600' fontSize={{ sm: '.8rem' }}>
-                        <Box textAlign='center'>
+                        <Box textAlign='center' position='relative'>
                           <Text>
                             SELECT YOUR DESTINATION
                           </Text>
-                          <Input className='dest-ip' onChange={inputcity} border='none' pb={{ sm: "1rem" }} w={{ sm: "100%", lg: "260px" }} mt={{ sm: "1rem" }} borderBottom='1px solid #96A4A9' borderRadius='0' color={colorMode === 'light' ? "black" : "white"} placeholder='eg. Manali, Jodhpur, Jaipur, etc.' />
+                          <Input
+                            className='dest-ip'
+                            onChange={inputcity}
+                            onFocus={handleInputFocus}
+                            onBlur={handleInputBlur}
+                            border='none'
+                            pb={{ sm: "1rem" }}
+                            w={{ sm: "100%", lg: "260px" }}
+                            mt={{ sm: "1rem" }}
+                            borderBottom='1px solid #96A4A9'
+                            borderRadius='0'
+                            color={colorMode === 'light' ? "black" : "white"}
+                            placeholder='eg. Manali, Jodhpur, Jaipur, etc.'
+                          />
+                          {isInputSelected ? (
+                            <Box position='absolute' left='0' px='5' bg={colorMode == "light" ? "white" : "#1A202C"} width='100%'>
+                              {filteredData.map((e, i) => {
+                                if (i < 4) {
+                                  return <Text key={i} textAlign='left' color={colorMode == 'light' ? '#545f71' : 'white'} cursor='pointer' onClick={() => { alert('daeda') }} fontSize='1rem' py='2'>{e}</Text>
+
+                                } else {
+                                  return null
+                                }
+                              })}
+                            </Box>
+                          ) : (
+                            <></>
+                          )}
                         </Box>
                         <HStack borderBottom='1px solid #96A4A9'>
                           <VStack className='date-box'>
@@ -220,7 +270,7 @@ export default function Home() {
                   <Box className='tab-box'>
                     <Flex alignItems={{ sm: "center", md: "flex-end" }} flexDir={{ sm: "column", md: "row" }} justifyContent={{ sm: "center", md: "space-between" }}>
                       <Stack direction={{ base: "column", lg: "row" }} mt={{ sm: "1rem" }} w={{ xl: "66%" }} justifyContent={{ xl: "space-between" }} color="#B5C0C4" fontWeight='600' fontSize={{ sm: '.8rem' }}>
-                        <Box textAlign='center'>
+                        <Box textAlign='center' position='relative'>
                           <Text>
                             SELECT YOUR ZOSTEL PLUS
                           </Text>
