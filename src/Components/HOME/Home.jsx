@@ -26,6 +26,7 @@ import WhatsNew from './WhatsNew'
 import ZostelXp from './ZostelXp'
 import PlayList from './PlayList'
 import data from '../DESTINATION_PAGE/Explore Destinations _ Zostel.json'
+import { useColorModeValue } from '@chakra-ui/react'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -153,10 +154,10 @@ export default function Home() {
                             placeholder='eg. Manali, Jodhpur, Jaipur, etc.'
                           />
                           {isInputSelected ? (
-                            <Box position='absolute' left='0' px='5' bg='white' width='100%'>
+                            <Box position='absolute' left='0' px='5' bg={colorMode == "light" ? "white" : "#1A202C"} width='100%'>
                               {filteredData.map((e, i) => {
                                 if (i < 4) {
-                                  return <Text key={i} textAlign='left' color='#515C5F' cursor='pointer' onClick={() => { alert('daeda') }} fontSize='1rem' py='2'>{e}</Text>
+                                  return <Text key={i} textAlign='left' color={colorMode == 'light' ? '#545f71' : 'white'} cursor='pointer' onClick={() => { alert('daeda') }} fontSize='1rem' py='2'>{e}</Text>
 
                                 } else {
                                   return null
