@@ -173,7 +173,7 @@ export default function Home() {
                             <Text>
                               CHECK IN
                             </Text>
-                            <Input type='date' border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
+                            <Input type='date' color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
                           </VStack>
                           <Box fontSize={{ sm: "1.5rem" }}>
                             <MdArrowRightAlt />
@@ -182,7 +182,7 @@ export default function Home() {
                             <Text>
                               CHECK OUT
                             </Text>
-                            <Input type='date' border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
+                            <Input type='date' color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
                           </VStack>
                         </HStack>
                       </Stack>
