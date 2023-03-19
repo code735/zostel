@@ -25,7 +25,7 @@ import {
 } from "@chakra-ui/react";
 import { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { ZostelContext } from "../../UseContext/ZostelContext";
 import PreLoader from "../PreLoader";
 
@@ -49,6 +49,9 @@ export default function Login() {
   const [loading, setLoading] = React.useState(false);
 
   const { colorMode, toggleColorMode } = useColorMode();
+
+  const location  =useLocation()
+  // console.log("location: ", location);
 
   React.useEffect(()=>{
     setLoading(true)
@@ -76,7 +79,7 @@ export default function Login() {
 
       setTimeout(() => {
         setSubmitedform(false);
-        navigate("/");
+        navigate(location.state===null? '/' : location.state);
       }, 1000);
     } else {
       toast({
