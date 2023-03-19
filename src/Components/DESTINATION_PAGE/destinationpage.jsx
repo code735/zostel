@@ -57,6 +57,7 @@ function Destinationpage() {
       <SimpleGrid columns={{ sm: '1', md:"2",lg: '3',xl:"4" }} spacing={3}>
         {data.map((e) => {
             return (
+              <NavLink to={`/destination/${e.Title}`}>
               <Card maxW="sm" position="relative">
                 <Image
                   src={e.Image}
@@ -75,9 +76,10 @@ function Destinationpage() {
                   color="white"
                   fontSize={"2xl"}
                 >
-                  {<NavLink to={`/destination/${e.Title}`}>{e.Title}</NavLink>}
+                  {e.Title}
                 </Text>
               </Card>
+              </NavLink>
             );
           })}
       </SimpleGrid>
