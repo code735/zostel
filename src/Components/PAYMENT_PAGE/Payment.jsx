@@ -18,6 +18,7 @@ import {
   Button,
   useToast,
   useColorModeValue,
+  useDisclosure,
   HStack,
   Image,
   Checkbox,
@@ -26,6 +27,7 @@ import {
   AlertIcon,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import PaymentModal from "./PaymentModal";
 
 export default function Payment() {
   const [formData, setFormData] = useState({
@@ -39,6 +41,7 @@ export default function Payment() {
   });
 
   const [formsubmit, setFormsubmit] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -392,7 +395,7 @@ export default function Payment() {
               <Text>₹188</Text>
             </HStack>
             <Divider />
-            <Checkbox isChecked={formsubmit} colorScheme="orange" isRequired mt={"50px"} onChange={(e)=>console.log("eeee",e.target.checked)}>
+            <Checkbox isChecked={formsubmit} colorScheme="orange" isRequired mt={"50px"} onChange={(e) => console.log("eeee", e.target.checked)}>
               I acknowledge and accept the terms and conditions mentioned in the
               Property Policy & Cancellation Policy.
             </Checkbox>
@@ -400,9 +403,11 @@ export default function Payment() {
               isDisabled={!formsubmit}
               width={"100%"}
               colorScheme={"orange"}
+              onClick={onOpen}
             >
               Reserve
             </Button>
+            <PaymentModal onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
           </VStack>
         </Box>
       </Stack>

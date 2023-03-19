@@ -12,8 +12,10 @@ import LocationCom from './Location'
 import CartCom from './Cart'
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, } from '@chakra-ui/react'
 import { NavLink } from 'react-router-dom'
+import {useState,useEffect} from "react";
 
 export default function Zostel() {
+  
   return (
     <div>
       <NavLink to="/payment"><Button>Payment</Button></NavLink>
@@ -37,14 +39,14 @@ export default function Zostel() {
       </Box>
       {/* Image Section */}
       <Box w="80%" h="fit-content" m="auto"  >
-        <Flex gap="10px">
-          <Box w="80%" h="600px">
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/SAReimRtRpeYxcwZL8vFqw/zostel-alleppey-20221008133041.jpg" alt="error" borderRadius="10px 0px 0px 10px" />
+        <Flex gap="5px">
+          <Box >
+            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/SAReimRtRpeYxcwZL8vFqw/zostel-alleppey-20221008133041.jpg" alt="error" w="900px" h="520px" borderRadius="10px 0px 0px 10px" />
           </Box>
           <Box>
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" mb="9px" h="202px" w="230px" borderRadius="0px 10px 0px 0px" />
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" h="202px" mb="9px" w="230px" />
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" h="202px" w="230px" borderRadius="0px 0px 10px 0px" />
+            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" mb="5px"  borderRadius="0px 10px 0px 0px" w="300px" h="170px" />
+            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" mb="5px"  w="300px" h="170px" />
+            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280"   w="300px" h="170px" borderRadius="0px 0px 10px 0px" />
             {/* <Button>View All Photo</Button> */}
           </Box>
         </Flex>
