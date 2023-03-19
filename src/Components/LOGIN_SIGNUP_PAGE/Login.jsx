@@ -115,59 +115,59 @@ export default function Login() {
       setSubmitedform(false);
     }, 1000);
 
-    toast({
-      position: "top",
-      title: `OTP sent to ${form.current.user_email.value}`,
-      description: `We've sent OTP-${OTP}`,
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    });
-
-    // emailjs
-    //   .sendForm(
-    //     "service_3yydjin",
-    //     "template_e0a4u9v",
-    //     form.current,
-    //     "VSVeva8uMM9Bh4gpq"
-    //   )
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
     // toast({
-    //     position:"top",
-    //     title: `OTP sent to ${form.current.user_email.value}`,
-    //     description: "We've sent OTP",
-    //     status: 'success',
-    //     duration: 9000,
-    //     isClosable: true,
-    //   })
-    //     },
-    //     (error) => {
-    //     toast({
-    //         position:"top",
-    //         title: 'FAILED TO SEND OTP',
-    //         description: "Server Issues!! Try Again After Some Time",
-    //         status: 'error',
-    //         duration: 3000,
-    //         isClosable: true,
-    //       })
-    //       console.log(error.text);
-    //     }
-    //   );
-    //     },
-    //     (error) => {
-    //     toast({
-    //         position:"top",
-    //         title: 'FAILED TO SEND OTP',
-    //         description: "Server Issues!! Try Again After Some Time",
-    //         status: 'error',
-    //         duration: 3000,
-    //         isClosable: true,
-    //       })
-    //       console.log(error.text);
-    //     }
-    //   );
+    //   position: "top",
+    //   title: `OTP sent to ${form.current.user_email.value}`,
+    //   description: `We've sent OTP-${OTP}`,
+    //   status: "success",
+    //   duration: 9000,
+    //   isClosable: true,
+    // });
+
+    emailjs
+      .sendForm(
+        "service_3yydjin",
+        "template_e0a4u9v",
+        form.current,
+        "VSVeva8uMM9Bh4gpq"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+    toast({
+        position:"top",
+        title: `OTP sent to ${form.current.user_email.value}`,
+        description: "We've sent OTP",
+        status: 'success',
+        duration: 9000,
+        isClosable: true,
+      })
+        },
+        (error) => {
+        toast({
+            position:"top",
+            title: 'FAILED TO SEND OTP',
+            description: "Server Issues!! Try Again After Some Time",
+            status: 'error',
+            duration: 3000,
+            isClosable: true,
+          })
+          console.log(error.text);
+        }
+      );
+      //   },
+      //   (error) => {
+      //   toast({
+      //       position:"top",
+      //       title: 'FAILED TO SEND OTP',
+      //       description: "Server Issues!! Try Again After Some Time",
+      //       status: 'error',
+      //       duration: 3000,
+      //       isClosable: true,
+      //     })
+      //     console.log(error.text);
+      //   }
+      // );
   };
   return loading ? (
     <Center h={"100vh"}>
