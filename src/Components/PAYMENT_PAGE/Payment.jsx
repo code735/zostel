@@ -18,6 +18,7 @@ import {
   Button,
   useToast,
   useColorModeValue,
+  useDisclosure,
   HStack,
   Image,
   Checkbox,
@@ -40,6 +41,7 @@ export default function Payment() {
   });
 
   const [formsubmit, setFormsubmit] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -401,10 +403,11 @@ export default function Payment() {
               isDisabled={!formsubmit}
               width={"100%"}
               colorScheme={"orange"}
+              onClick={onOpen}
             >
               Reserve
             </Button>
-            <PaymentModal />
+            <PaymentModal onOpen={onOpen} onClose={onClose} isOpen={isOpen} />
           </VStack>
         </Box>
       </Stack>
