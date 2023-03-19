@@ -11,7 +11,7 @@ import { ChevronDownIcon } from '@chakra-ui/icons'
 const LocationCom = () => {
     return (
         <Box w="80%" m="auto">
-            <Heading mt="50px" mb="20px">Locate Us</Heading>
+            <Heading mt="10px" mb="15px" fontSize="2xl">Locate Us</Heading>
             <Flex>
                 <Box w="35%">
                     <Heading fontSize="1xl" color="#4d585b;">Address:</Heading>
@@ -48,14 +48,14 @@ const LocationCom = () => {
                     </Button>
                 </Box>
               <Box  >
-              <div class="mapouter"><div class="gmap_canvas"><iframe borderRadius="20px" width="700px" height="300px" id="gmap_canvas" src="https://maps.google.com/maps?q=india&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
+              <div class="mapouter"><div class="gmap_canvas"><iframe style={{ borderRadius:"10px"}} width="700px" height="280px" id="gmap_canvas" src="https://maps.google.com/maps?q=india&t=&z=9&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div></div>
               </Box>
             </Flex>
 
 
 
             <Box>
-                <Heading mb="20px" mt="35px">
+                <Heading mb="15px" mt="30px" fontSize="2xl">
                     Property Policy
                 </Heading>
                 <Text>
@@ -86,7 +86,7 @@ const LocationCom = () => {
                 </Text>
             </Box>
             <Box>
-                <Heading mt="30px" mb="20px">
+                <Heading mt="30px" mb="10px" fontSize="2xl">
                     Cancellation Policy
                 </Heading>
                 <Text mt="20px" mb="20px">We understand that sometimes plans change. Hence, to make it light on your pocket, we are only charging a 21% advance, which is on a non-refundable basis.</Text>
