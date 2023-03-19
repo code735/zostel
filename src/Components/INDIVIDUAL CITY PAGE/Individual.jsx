@@ -28,6 +28,7 @@ export default function Individual() {
  
   let City= useParams();
   let city = City.city
+ city=city.toLowerCase()
   
   let mapo = (`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`)
   const Getdata = () => {
