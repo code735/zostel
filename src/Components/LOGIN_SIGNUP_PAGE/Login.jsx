@@ -155,19 +155,6 @@ export default function Login() {
           console.log(error.text);
         }
       );
-      //   },
-      //   (error) => {
-      //   toast({
-      //       position:"top",
-      //       title: 'FAILED TO SEND OTP',
-      //       description: "Server Issues!! Try Again After Some Time",
-      //       status: 'error',
-      //       duration: 3000,
-      //       isClosable: true,
-      //     })
-      //     console.log(error.text);
-      //   }
-      // );
   };
   return loading ? (
     <Center h={"100vh"}>
