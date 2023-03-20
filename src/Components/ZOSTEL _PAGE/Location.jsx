@@ -18,7 +18,7 @@ const LocationCom = () => {
                     <Text>Beach Road, Near Vijay Beach Park, Sea View Ward, Padinjare Kurisadi, Kanjiramchira, Alappuzha, Kerala Contact : 04440114576</Text>
 
 
-                    <Button mt="30px" w="210px" fontSize="1xl" color="#f15824" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" textAlign="start" >
+                    <Button mt="30px" w="350px" fontSize="1xl" color="#f15824" boxShadow="box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;" borderRadius="10px" textAlign="start" >
                         <FaWhatsapp color="#f15824" />
                          Whatapp Us
                     </Button>
