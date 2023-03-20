@@ -19,15 +19,24 @@ import {
     AccordionIcon,
     AccordionItem,
     Input,
-    FormControl
+    FormControl,
+    Alert,
+    AlertIcon,
+    AlertTitle,
+    AlertDescription,
+    CloseButton
 } from "@chakra-ui/react"
 import { BiShieldAlt2 } from 'react-icons/bi'
 import { useColorMode } from "@chakra-ui/system"
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { cardNumber, expirationDate, cvv } from 'card-validator';
+import { useNavigate } from 'react-router'
+import { NavLink } from 'react-router-dom'
 
 export default function PaymentModal({ onOpen, onClose, isOpen }) {
     var { colormode, toggleColorMode } = useColorMode();
+    var { navigate } = useNavigate();
+
     var data = {
         "payment_methods": [
             {
@@ -225,7 +234,9 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                         }}>
                             <Flex width='100%' justifyContent="space-between" alignItems="center">
                                 <Text fontWeight='bold'>₹188</Text>
-                                <Button colorScheme='orange' type='submit'>Pay Now</Button>
+                                <NavLink to='/success'>
+                                    <Button colorScheme='orange' type='submit'>Pay Now</Button>
+                                </NavLink>
                             </Flex>
                         </ModalFooter>
                     </ModalContent>
