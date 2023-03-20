@@ -16,12 +16,12 @@ export default function PaymentSucces() {
     const { colormode, togglecolormode } = useColorMode();
 
 
-    useEffect(() => {
-        setLoading(true)
-        window.addEventListener('load', () => {
-            setLoading(false);
-        });
-    }, [])
+    // useEffect(() => {
+    //     setLoading(true)
+    //     window.addEventListener('load', () => {
+    //         setLoading(false);
+    //     });
+    // }, [])
 
     useEffect(() => {
         setLoading(true)

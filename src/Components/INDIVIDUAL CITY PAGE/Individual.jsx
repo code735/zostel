@@ -22,14 +22,14 @@ import {
 export default function Individual() {
   const [data, setdata] = useState()
   const [dataList, setdatalist] = useState([])
-  const[show,setshow] = useState(false)
+  const [show, setshow] = useState(false)
 
 
- 
-  let City= useParams();
+
+  let City = useParams();
   let city = City.city
- city=city.toLowerCase()
-  
+  city = city.toLowerCase()
+
   let mapo = (`https://maps.google.com/maps?q=${city}&t=&z=13&ie=UTF8&iwloc=&output=embed`)
   const Getdata = () => {
     console.log("yha hai")
@@ -45,7 +45,7 @@ export default function Individual() {
       .then((res) => res.json())
       .then((d) => {
         setdatalist(d.blogs)
-console.log(d.blogs);
+        console.log(d.blogs);
       })
   }
   console.log(data)
@@ -56,10 +56,10 @@ console.log(d.blogs);
   }, [])
   return (
     <>
-      {data == undefined ?  <Center h={"100vh"}>
-    {/* //preloader */}
-    <PreLoader/>
-    </Center> :
+      {data == undefined ? <Center h={"100vh"}>
+        {/* //preloader */}
+        <PreLoader />
+      </Center> :
         <div>
 
           {/* screen display div */}
@@ -106,27 +106,27 @@ console.log(d.blogs);
                 </Breadcrumb>
 
               </Box>
-              <div style={show?{justifyContent:"center", height: "auto"}:{ overflow:"hidden",  height: "15em"}}>
+              <div style={show ? { justifyContent: "center", height: "auto" } : { overflow: "hidden", height: "15em" }}>
 
-              <h1 style={{ textAlign: "center", fontSize: "2.2em", fontWeight: "bold", marginTop: "2%" }}>Welcome to</h1>
-              <h1 style={{ textAlign: "center", fontSize: "2.8em", color: "#FF6347", fontWeight: "bold" }}>{data.name}</h1>
-              <p style={{ textAlign: "center", margin: "0 15%" }}> {parse(data.description)}</p>
-            
+                <h1 style={{ textAlign: "center", fontSize: "2.2em", fontWeight: "bold", marginTop: "2%" }}>Welcome to</h1>
+                <h1 style={{ textAlign: "center", fontSize: "2.8em", color: "#FF6347", fontWeight: "bold" }}>{data.name}</h1>
+                <p style={{ textAlign: "center", margin: "0 15%" }}> {parse(data.description)}</p>
+
 
               </div>
-              
-
-              <button style={{color:"tomato",position:"absolute",transform: "translateX(-50%)",left:"50%"}} onClick={()=>setshow(!show)}>{show?"show less":"show More"}</button>
-            
 
 
-              <h1 style={{ textAlign: "center", margin: "2% 15%", fontSize: "2.2em", fontWeight: "bold",marginBottom:"2%",marginTop:"35px" }}>Stays At <span style={{ color: "tomato", fontSize: "1.3em" }}>{data.name}</span> </h1>
+              <button style={{ color: "tomato", position: "absolute", transform: "translateX(-50%)", left: "50%" }} onClick={() => setshow(!show)}>{show ? "show less" : "show More"}</button>
+
+
+
+              <h1 style={{ textAlign: "center", margin: "2% 15%", fontSize: "2.2em", fontWeight: "bold", marginBottom: "2%", marginTop: "35px" }}>Stays At <span style={{ color: "tomato", fontSize: "1.3em" }}>{data.name}</span> </h1>
               {data.operators.map((ele) => {
-                
-                 let price = Math.random() * (999 - 449) + 449;
-                 price=price.toFixed(0)
-                
-                 console.log(price)
+
+                let price = Math.random() * (999 - 449) + 449;
+                price = price.toFixed(0)
+
+                console.log(price)
 
                 return (
 
@@ -139,11 +139,11 @@ console.log(d.blogs);
                       <div>
 
                         <h2 style={{ color: "grey", fontWeight: "bold", fontSize: "1.26em" }}>Zostal</h2>
-                        <h1 style={{ fontWeight: "bold", fontSize: "2em",color:"black" }}>{ele.name}</h1>
+                        <h1 style={{ fontWeight: "bold", fontSize: "2em", color: "black" }}>{ele.name}</h1>
                         <p style={{ fontWeight: "bold", color: `#4D585B`, marginTop: "2%" }}>{ele.short_description}</p>
                         <div style={{ display: "flex", textAlign: "right", marginTop: "10%" }}>
 
-                          <p style={{ textAlign: "left", fontWeight: "bold" , color:"black" }}>Starting from  <span style={{color:"tomato",fontSize:"1.1em"}}>&#8377;{price}</span></p> 
+                          <p style={{ textAlign: "left", fontWeight: "bold", color: "black" }}>Starting from  <span style={{ color: "tomato", fontSize: "1.1em" }}>&#8377;{price}</span></p>
                           <Button _hover={{ bg: "white", color: "tomato" }} ml={"40%"} color="white" bg="tomato"><NavLink to={`/destination/${city}/${ele.slug}`} style={{ textDecoration: "none" }}>View &nbsp;&#8594;</NavLink>&nbsp;</Button>
                         </div>
                       </div>
@@ -179,7 +179,7 @@ console.log(d.blogs);
 
 
           <div style={{ backgroundColor: "#E8F0F2", padding: "1%" }}>
-            <h1 style={{ textAlign: "center", fontSize: "2.4em",color:"black",fontWeight:"bold" }}>Latest Road </h1>
+            <h1 style={{ textAlign: "center", fontSize: "2.4em", color: "black", fontWeight: "bold" }}>Latest Road </h1>
 
             <Container maxWidth="100%" mx="auto" my="auto" p={{ base: 5, md: 10 }}>
               <SimpleGrid columns={{ sm: "1", md: "2", lg: "5", xl: "5" }} spacing="15px">
@@ -195,7 +195,7 @@ console.log(d.blogs);
                         overflow="hidden"
                         position="relative"
                       >
-                        <Image src={blog.custom_cover} alt="Blog image" />
+                        <Image src={blog.custom_cover} height="150px" objectFit="cover" alt="Blog image" />
                         <Box p={{ base: 4, lg: 4 }}>
                           <Box d="flex" alignItems="baseline">
                             <Box
@@ -209,7 +209,7 @@ console.log(d.blogs);
                               {blog.title}
                             </Box>
                           </Box>
-                         
+
                           <Text
                             mt="1"
                             fontWeight="semibold"
