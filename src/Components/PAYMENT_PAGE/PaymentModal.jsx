@@ -16,9 +16,12 @@ import {
     AccordionButton,
     AccordionPanel,
     AccordionIcon,
-    AccordionItem
+    AccordionItem,
+    Input,
+    FormControl
 } from "@chakra-ui/react"
 import { BiShieldAlt2 } from 'react-icons/bi'
+import { BsFillCreditCardFill } from 'react-icons/bs'
 import { AiOutlineInfoCircle } from 'react-icons/ai'
 
 export default function PaymentModal({ onOpen, onClose, isOpen }) {
@@ -103,7 +106,7 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                                             </AccordionButton>
                                         </h2>
                                         <AccordionPanel pb={4}>
-                                            Lorem ipsum dolor sit amet,
+                                            <Input placeholder='Enter Your Card No' isRequired />
                                         </AccordionPanel>
                                     </AccordionItem>
 
@@ -112,14 +115,16 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                                             <AccordionButton>
                                                 <Box as="span" flex='1' textAlign='left'>
                                                     <Text>UPI / QR</Text>
-                                                    <Text fontSize='.8rem'>Visa, Mastercard, RuPay & More</Text>
+                                                    <Text fontSize='.8rem'>PhonePe, Google Pay, PayTM</Text>
                                                 </Box>
                                                 <AccordionIcon />
                                             </AccordionButton>
                                         </h2>
-                                        <AccordionPanel pb={4}>
-                                            Lorem ipsum dolor sit amet,
-                                        </AccordionPanel>
+                                        <FormControl isRequired>
+                                            <AccordionPanel pb={4}>
+                                                <Input placeholder='Enter UPI ID' isRequired />
+                                            </AccordionPanel>
+                                        </FormControl>
                                     </AccordionItem>
 
                                     <AccordionItem width={'100%'}>
@@ -133,7 +138,6 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                                             </AccordionButton>
                                         </h2>
                                         <AccordionPanel pb={4}>
-                                            Lorem ipsum dolor sit amet,
                                         </AccordionPanel>
                                     </AccordionItem>
 
