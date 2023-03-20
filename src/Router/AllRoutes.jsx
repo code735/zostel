@@ -16,7 +16,7 @@ export default function AllRoutes() {
         <Route path='/' element={<Home />} />
         <Route path='/destination' element={<Destinationpage />} />
         <Route path='/destination/:city' element={<Individual />} />
-        <Route path='/zostel' element={<Zostel />} />
+        <Route path='/destination/:city/:slug' element={<Zostel />} />
         <Route path='/profile' element={<Profile />} />
         {/* <Route path='/login' element={<IsAuthPrivateRoute><Profile /></IsAuthPrivateRoute>} /> */}
         <Route path='/login' element={<Login />} />

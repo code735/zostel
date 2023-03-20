@@ -1,70 +1,138 @@
-import React from 'react'
-import { Image, Box, Flex, Button, Heading, Text, Tag, TagLabel, Avatar, HStack } from '@chakra-ui/react'
-import { BsFillKeyFill, BsWifi, BsFan, BsFillLampFill, BsFillCreditCardFill, BsReception3, BsQrCodeScan } from "react-icons/bs"
-import { GrCafeteria } from "react-icons/gr"
-import { IoMdCafe, IoMdBed } from "react-icons/io"
-import { MdShower, MdRestoreFromTrash, MdOutlineLocalParking, MdOutlineBathtub, MdOtherHouses, MdLocalLaundryService } from "react-icons/md"
-import { GiAtSea } from "react-icons/gi"
-import { FaGlassWhiskey } from "react-icons/fa"
-import { BiArea } from "react-icons/bi"
-import {ChevronRightIcon} from "@chakra-ui/icons"
-import LocationCom from './Location'
-import CartCom from './Cart'
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbSeparator, } from '@chakra-ui/react'
-import { NavLink } from 'react-router-dom'
-import {useState,useEffect} from "react";
+import React from "react";
+import {
+  Image,
+  Box,
+  Flex,
+  Button,
+  Heading,
+  Text,
+  HStack,
+} from "@chakra-ui/react";
+import {
+  BsFillKeyFill,
+  BsWifi,
+  BsFan,
+  BsFillLampFill,
+  BsFillCreditCardFill,
+  BsReception3,
+  BsQrCodeScan,
+} from "react-icons/bs";
+import { GrCafeteria } from "react-icons/gr";
+import { IoMdCafe, IoMdBed } from "react-icons/io";
+import {
+  MdShower,
+  MdRestoreFromTrash,
+  MdOutlineLocalParking,
+  MdOutlineBathtub,
+  MdOtherHouses,
+  MdLocalLaundryService,
+} from "react-icons/md";
+import { GiAtSea } from "react-icons/gi";
+import { FaGlassWhiskey } from "react-icons/fa";
+import { BiArea } from "react-icons/bi";
+import { ChevronRightIcon } from "@chakra-ui/icons";
+import LocationCom from "./Location";
+import CartCom from "./Cart";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+} from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import parse from "html-react-parser";
+import { useParams } from "react-router";
 
 export default function Zostel() {
-  
+  const [slugdata, setSlugdata] = useState();
+  let slug1= useParams();
+  console.log("slug: ", slug1);
+  let slug = slug1.slug;
+  // let slug = "bir-20-birh138";
+  const Getdata = () => {
+    console.log("yha hai");
+    fetch(
+      `https://api.zostel.com/api/v1/stay/metadata/?url=https://www.zostel.com/zostel/bir/${slug}/`
+    )
+      .then((res) => res.json())
+      .then((d) => {
+        console.log("setcard: ", d.data);
+        setSlugdata(d.data);
+      });
+  };
+  useEffect(() => {
+    Getdata();
+  }, []);
+
   return (
-    <div>
-      <NavLink to="/payment"><Button>Payment</Button></NavLink>
+    <>
+    {slugdata == undefined?<></>:<div>
       <Box width="80%" m="20px auto">
-        <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
+        <Breadcrumb
+          spacing="8px"
+          separator={<ChevronRightIcon color="gray.500" />}
+        >
           <BreadcrumbItem>
-            <BreadcrumbLink href='#'>Home</BreadcrumbLink>
+            <BreadcrumbLink href="#">Home</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem>
-            <BreadcrumbLink href='#'>Destination</BreadcrumbLink>
+            <BreadcrumbLink href="#">Destination</BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <BreadcrumbLink href='#'>Alleppey</BreadcrumbLink>
+            <BreadcrumbLink href={`/destination/${slug.city}/`}>{slugdata.city}</BreadcrumbLink>
           </BreadcrumbItem>
 
           <BreadcrumbItem isCurrentPage>
-            <BreadcrumbLink href='#'>Zostel Alleppey</BreadcrumbLink>
+            <BreadcrumbLink href={`/destination/${slug.city}/${slug.slug}`}>{slugdata.alt_name}</BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>
       </Box>
       {/* Image Section */}
-      <Box w="80%" h="fit-content" m="auto"  >
+      <Box w="80%" h="fit-content" m="auto">
         <Flex gap="5px">
-          <Box >
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/SAReimRtRpeYxcwZL8vFqw/zostel-alleppey-20221008133041.jpg" alt="error" w="900px" h="520px" borderRadius="10px 0px 0px 10px" />
+          <Box>
+            <Image
+              src={slugdata.images[0].image}
+              alt="error"
+              w="900px"
+              h="520px"
+              borderRadius="10px 0px 0px 10px"
+
+            />
           </Box>
           <Box>
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" mb="5px"  borderRadius="0px 10px 0px 0px" w="300px" h="170px" />
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280" mb="5px"  w="300px" h="170px" />
-            <Image src="https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280"   w="300px" h="170px" borderRadius="0px 0px 10px 0px" />
+            <Image
+              src={slugdata.images[1].image}
+              mb="5px"
+              borderRadius="0px 10px 0px 0px"
+              w="300px"
+              h="170px"
+            />
+            <Image
+              src={slugdata.images[2].image}
+              mb="5px"
+              w="300px"
+              h="170px"
+            />
+            <Image
+              src={slugdata.images[3].image}
+              w="300px"
+              h="170px"
+              borderRadius="0px 0px 10px 0px"
+            />
             {/* <Button>View All Photo</Button> */}
           </Box>
         </Flex>
 
         {/* Detail Section */}
         <Flex gap="30px">
-          <Box w="55%">
+          <Box w="55%" mb="20">
             <Heading color="#f15824" mt="10px">
-              Zostel Alleppey
+              {slugdata.alt_name}
             </Heading>
             <Text mt="5px">
-              Situated right at the scenic Alappuzha Beach, Zostel Alleppey is a happening backpackers' hostel ideal for exploring the town and its backwaters. A white-coloured building surrounded by swaying palm trees invites you to a dreamy beach vacation here. The hostel is equipped with workstations, a colourful common area with indoor games, and a sprawling rooftop with an unobstructed view of the Arabian Sea. Look forward to a tour of backwaters on a houseboat, soothing village walks, and crimson-gold beach sunsets. And when you make your way back to the hostel, a lively evening full of chatter with fellow travellers will await.
+              {parse(slugdata.description)}
             </Text>
-            <Heading fontSize="1xl" mt="30px">Recommended experiences:</Heading>
-            <Text>
-              Experience the village life in Kuttanad, watch sunsets, and explore long stretches of sand. Watch locals practicing for snake boat race, go on a boat ride on backwaters, and chill by the campfire.
-            </Text>
-            
           </Box>
           <Box>
             <Heading mt="10px" fontSize="3xl" mb="20px">
@@ -99,11 +167,7 @@ export default function Zostel() {
                 <HStack mb="8px">
                   <MdOutlineLocalParking />
                   <Text fontSize="1xl">Parking</Text>
-                </HStack >
-
-
-
-
+                </HStack>
               </Box>
               <Box>
                 <HStack mb="8px">
@@ -130,9 +194,7 @@ export default function Zostel() {
                   <BsQrCodeScan />
                   <Text fontSize="1xl">UPI PAyment Accepted</Text>
                 </HStack>
-
               </Box>
-
 
               <Box>
                 <HStack mb="8px">
@@ -161,16 +223,15 @@ export default function Zostel() {
                 </HStack>
               </Box>
             </Flex>
-
           </Box>
         </Flex>
-
       </Box>
       {/* Cart Section */}
       <CartCom />
       {/* Location Section */}
       <LocationCom />
-    </div>
-  )
+    </div>}
+    </>
+    
+  );
 }
-

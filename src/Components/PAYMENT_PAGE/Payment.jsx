@@ -28,7 +28,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import PaymentModal from "./PaymentModal";
-
 export default function Payment() {
   const [formData, setFormData] = useState({
     firstName: "",
