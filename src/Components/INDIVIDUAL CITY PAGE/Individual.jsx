@@ -45,7 +45,7 @@ export default function Individual() {
       .then((res) => res.json())
       .then((d) => {
         setdatalist(d.blogs)
-
+console.log(d.blogs);
       })
   }
   console.log(data)
@@ -101,7 +101,7 @@ export default function Individual() {
                     <BreadcrumbLink href="/destination">Destinations</BreadcrumbLink>
                   </BreadcrumbItem>
                   <BreadcrumbItem isCurrentPage>
-                    <BreadcrumbLink href="#">{data.name}</BreadcrumbLink>
+                    <BreadcrumbLink href={`/destination/${city.city}/`}>{data.name}</BreadcrumbLink>
                   </BreadcrumbItem>
                 </Breadcrumb>
 
@@ -144,7 +144,7 @@ export default function Individual() {
                         <div style={{ display: "flex", textAlign: "right", marginTop: "10%" }}>
 
                           <p style={{ textAlign: "left", fontWeight: "bold" , color:"black" }}>Starting from  <span style={{color:"tomato",fontSize:"1.1em"}}>&#8377;{price}</span></p> 
-                          <Button _hover={{ bg: "white", color: "tomato" }} ml={"40%"} color="white" bg="tomato"><NavLink to="/zostel" style={{ textDecoration: "none" }}>View &nbsp;&#8594;</NavLink>&nbsp;</Button>
+                          <Button _hover={{ bg: "white", color: "tomato" }} ml={"40%"} color="white" bg="tomato"><NavLink to={`/destination/${city}/${ele.slug}`} style={{ textDecoration: "none" }}>View &nbsp;&#8594;</NavLink>&nbsp;</Button>
                         </div>
                       </div>
                     </div>

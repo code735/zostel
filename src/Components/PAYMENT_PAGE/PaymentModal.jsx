@@ -164,7 +164,7 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                         <Button colorScheme='orange'>Pay Now</Button>
                     </ModalFooter>
                 </ModalContent>
-            </Modal >
+            </Modal>
         </>
     )
 }

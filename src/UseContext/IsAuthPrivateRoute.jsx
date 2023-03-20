@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { Navigate, useLocation } from "react-router";
+import { ZostelContext } from "./ZostelContext";
+
 const IsAuthPrivateRoute = ({children}) => {
-    // let isLogin=useSelector((store)=>store.AuthReducer.isAuth)
-    //   if(!isLogin) {
-    //       return <Navigate to='/login'/>;
-    //   }
+  const { isLogin } = useContext(ZostelContext);
+  let location  =useLocation()
+      if(!isLogin) {
+          return <Navigate state={location.pathname} to='/login'/>;
+      }
       return children
 };
 
