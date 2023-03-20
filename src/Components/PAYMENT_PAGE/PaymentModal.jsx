@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import {
     Modal,
     ModalBody,
@@ -32,10 +32,12 @@ import { AiOutlineInfoCircle } from 'react-icons/ai'
 import { cardNumber, expirationDate, cvv } from 'card-validator';
 import { useNavigate } from 'react-router'
 import { NavLink } from 'react-router-dom'
+import { ZostelContext } from '../../UseContext/ZostelContext'
 
 export default function PaymentModal({ onOpen, onClose, isOpen }) {
     var { colormode, toggleColorMode } = useColorMode();
     var { navigate } = useNavigate();
+  const {cartprice}=useContext(ZostelContext)
 
     var data = {
         "payment_methods": [
@@ -151,6 +153,7 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                                     </Flex>
                                 </VStack>
                             </Flex>
+                            <Text fontSize={"xl"} fontWeight={"700"} mb="3">Payable Amount: ₹{(cartprice * 0.21).toFixed(0)}</Text>
                             <VStack alignItems={'flex-start'}>
                                 <Text fontWeight='600'>
                                     Cards, UPI & More
@@ -233,7 +236,7 @@ export default function PaymentModal({ onOpen, onClose, isOpen }) {
                             boxShadow: colormode === "light" ? "0px 0px 15px gray" : "none"
                         }}>
                             <Flex width='100%' justifyContent="space-between" alignItems="center">
-                                <Text fontWeight='bold'>₹188</Text>
+                                <Text fontWeight='bold'>₹{(cartprice * 0.21).toFixed(0)}</Text>
                                 <NavLink to='/success'>
                                     <Button colorScheme='orange' type='submit'>Pay Now</Button>
                                 </NavLink>

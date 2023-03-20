@@ -18,11 +18,11 @@ export default function AllRoutes() {
         <Route path='/destination' element={<Destinationpage />} />
         <Route path='/destination/:city' element={<Individual />} />
         <Route path='/destination/:city/:slug' element={<Zostel />} />
-        <Route path='/profile' element={<Profile />} />
-        {/* <Route path='/login' element={<IsAuthPrivateRoute><Profile /></IsAuthPrivateRoute>} /> */}
+        {/* <Route path='/profile' element={<Profile />} /> */}
+        <Route path='/profile' element={<IsAuthPrivateRoute><Profile /></IsAuthPrivateRoute>} />
         <Route path='/login' element={<Login />} />
         <Route path='/payment' element={<IsAuthPrivateRoute><Payment /></IsAuthPrivateRoute>} />
-        <Route path='/payment' element={<Payment />} />
+        {/* <Route path='/payment' element={<Payment />} /> */}
         <Route path='/*' element={<Text bg={"red.700"} fontSize="5xl">404 Not Found</Text>} />
         <Route path='/success' element={<PaymentSucces />} />
       </Routes>

@@ -33,7 +33,7 @@ export default function PaymentSucces() {
     let navigate = useNavigate();
 
     setTimeout(() => {
-        navigate('/')
+        navigate('/profile')
     }, 5000);
 
     const ID = generateRandomId();
@@ -45,7 +45,7 @@ export default function PaymentSucces() {
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-            background: "url(https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202205051946358684-1965c8aecc7c11ecb1050a58a9feac02.jpg)",
+            background: "url(https://img.cdn.zostel.com/zostel/gallery/images/v9_1z377RrelrK0mDPiFyQ/zostel-homes-ramgarh-exterior-20220425022507.jpg?w=1280)",
             backgroundSize: "cover",
             position: "absolute",
             top: "0",

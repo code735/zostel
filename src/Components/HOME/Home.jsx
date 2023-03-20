@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import Slideshow from '../Slidershow'
 import {
@@ -33,6 +33,7 @@ import VoiceInput from './VoiceInput'
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 
 import { HiOutlineMicrophone } from "react-icons/hi2";
+import { ZostelContext } from '../../UseContext/ZostelContext'
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -99,6 +100,18 @@ export default function Home() {
     }
     setfilteredData(temp);
   }, [city])
+
+  const {enddate,setEnddate,startdate,setStartdate}=useContext(ZostelContext)
+
+  function startdatechange(e){
+    console.log("startdatechange: ", e.target.value);
+    setStartdate(e.target.value)
+  
+  }
+  function enddatechange(e){
+    console.log("enddatechange: ", e.target.value);
+    setEnddate(e.target.value)
+  }
 
   return (
     <>{loading ? <PreLoader /> : <div>
@@ -202,7 +215,7 @@ export default function Home() {
                             <Text>
                               CHECK IN
                             </Text>
-                            <Input type='date' color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
+                            <Input type='date' onChange={startdatechange} color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
                           </VStack>
                           <Box fontSize={{ sm: "1.5rem" }}>
                             <MdArrowRightAlt />
@@ -211,7 +224,7 @@ export default function Home() {
                             <Text>
                               CHECK OUT
                             </Text>
-                            <Input type='date' color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
+                            <Input type='date' onChange={enddatechange} color={colorMode == "light" ? "black" : "#white"} border='none' outline='none' p={{ sm: "0" }} mt={{ sm: '0!important' }} />
                           </VStack>
                         </HStack>
                       </Stack>
