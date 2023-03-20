@@ -195,7 +195,7 @@ export default function Individual() {
                         overflow="hidden"
                         position="relative"
                       >
-                        <Image src={blog.custom_cover} height="200px" objectFit="cover" alt="Blog image" />
+                        <Image src={blog.custom_cover} height="150px" objectFit="cover" alt="Blog image" />
                         <Box p={{ base: 4, lg: 4 }}>
                           <Box d="flex" alignItems="baseline">
                             <Box
