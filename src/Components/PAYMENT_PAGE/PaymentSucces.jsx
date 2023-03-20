@@ -34,7 +34,7 @@ export default function PaymentSucces() {
 
     setTimeout(() => {
         navigate('/')
-    }, 7000);
+    }, 5000);
 
     const ID = generateRandomId();
     return (
