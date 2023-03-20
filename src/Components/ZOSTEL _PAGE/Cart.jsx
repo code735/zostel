@@ -10,6 +10,8 @@ import {
   Image,
   Option,
   Center,
+  useColorModeValue,
+  useColorMode,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { Select, Spacer } from "@chakra-ui/react";
@@ -57,6 +59,8 @@ const CartCom = () => {
   const [carddata, setcard] = useState();
   const [cart, setcart] = useState([]);
 
+
+
   let slug1= useParams();
   console.log("slug: ", slug1);
   let slug = slug1.slug;
@@ -95,6 +99,9 @@ const CartCom = () => {
       setcart([...cart, { ...ele, quantity_rooms: Number(e.target.value) }]);
     }
   };
+
+  const { colorMode, toggleColorMode } = useColorMode();
+
   console.log(cart);
 
   return (
@@ -102,33 +109,33 @@ const CartCom = () => {
       {carddata == undefined ? (
         <PreLoader />
       ) : (
-        <Box width="100%" bg="#E8F0F2" pt="50" pb="50">
+        <Box width="100%"  pt="50" pb="50" bg={colorMode === "light" ? "#E8F0F2" : "#1A202C"} >
           <Stack direction="row" m="auto" width="80%">
             <VStack width="70%">
               <HStack w={"100%"}>
                 <VStack mb="5">
-                  <Text as={"h3"} fontSize="40px" fontWeight="700">
+                  <Text as={"h3"} fontSize="40px" fontWeight="700" color={colorMode === "light" ? "black" : "white"}>
                     Book your stay
                   </Text>
-                  <Text fontSize="16px" fontWeight="500" color="#4D585B">
+                  <Text fontSize="16px" fontWeight="500"  color={colorMode === "light" ? "#4D585B" : "white"} >
                     Select from a range of beautiful rooms
                   </Text>
                 </VStack>
                 <Spacer />
                 <HStack w={"450px"}>
-                  <Select placeholder="INR" fontSize="sm" bg="white">
-                    <option value="INR">INR</option>
-                    <option value="EURO">EURO</option>
-                    <option value="DOLLAR">DOLLAR</option>
+                  <Select placeholder="INR" fontSize="sm" bg="white"  color={"black"}>
+                    <option value="INR"   >INR</option>
+                    <option value="EURO"   >EURO</option>
+                    <option value="DOLLAR" >DOLLAR</option>
                   </Select>
                   <HStack
                     borderRadius="10"
                     bg="white"
                     boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
                   >
-                    <Input type="date" border="none" />
-                    <ArrowForwardIcon />
-                    <Input type="date" border="none" />
+                    <Input type="date" border="none" color={"black"}/>
+                    <ArrowForwardIcon   color={"black"}/>
+                    <Input type="date" border="none"  color={"black"}/>
                   </HStack>
                 </HStack>
               </HStack>
@@ -151,7 +158,7 @@ const CartCom = () => {
                         />
 
                         <Stack>
-                          <CardBody w={"600px"} p="5">
+                          <CardBody w={"600px"} p="5" color={colorMode === "light" ? "black" : "black"}>
                             <HStack>
                               <chakra.h3
                                 fontSize={{ base: "lg", md: "xl" }}
@@ -273,19 +280,21 @@ const CartCom = () => {
             <Spacer />
             <Box
               borderRadius={"10"}
+              color="black"
               width={{
                 sm: "100%",
                 md: "100%",
                 lg: "35%",
                 xl: "35%",
+                
               }}
               // border={useColorModeValue("1px solid #E8F0F2", "1px solid #3F444E")}
               padding={"3"}
             >
-              <Text as={"h3"} fontSize={"24"} fontWeight={"700"}>
+              <Text as={"h3"} fontSize={"24"} fontWeight={"700"} color={colorMode === "light" ? "black" : "white"}>
                 Summary
               </Text>
-              <Text fontSize={"14"} fontWeight={"700"}>
+              <Text fontSize={"14"} fontWeight={"700"} color={colorMode === "light" ? "black" : "white"}>
                 1 night <span style={{ color: "gray" }}>starting from</span> Mon
                 27 Mar, 2023
               </Text>
@@ -296,7 +305,7 @@ const CartCom = () => {
                   <>
                     {cart.map((e) => {
                       return (
-                        <HStack spacing={5} width={"100%"} mt={5}>
+                        <HStack spacing={5} width={"100%"} mt={5} color={colorMode === "light" ? "black" : "white"}>
                           <Image
                             src={e.images[0].image}
                             width={"64px"}
@@ -318,17 +327,17 @@ const CartCom = () => {
                       );
                     })}
                     <Divider />
-                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                    <HStack width={"100%"} fontSize={18} fontWeight="600" color={colorMode === "light" ? "black" : "white"}>
                       <Text>Tax</Text>
                       <Spacer />
                       <Text>₹{(totalprice * 0.12).toFixed(0)}</Text>
-                    </HStack>
-                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                    </HStack >
+                    <HStack width={"100%"} fontSize={18} fontWeight="600"  color={colorMode === "light" ? "black" : "white"}>
                       <Text>Total (tax incl.)</Text>
                       <Spacer />
                       <Text>₹{totalprice}</Text>
                     </HStack>
-                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                    <HStack width={"100%"} fontSize={18} fontWeight="600"  color={colorMode === "light" ? "black" : "white"}>
                       <Text>Payable Now</Text>
                       <Spacer />
                       <Text>₹{(totalprice * 0.21).toFixed(0)}</Text>
@@ -337,15 +346,20 @@ const CartCom = () => {
                     <Button
                       isDisabled={false}
                       width={"100%"}
-                      colorScheme={"orange"}
+                      colorScheme={"tomato"}
+                      bg="tomato"
+                      color={"white"}
                     >
-                      <NavLink to="/payment">Payment</NavLink>
+                      <NavLink to="/payment">Book now</NavLink>
                     </Button>
                   </>
                 ) : (
-                  <VStack>
-                    <Image src="https://book.zostel.com/static/media/gray-zobu.018014d9.svg" />
-                    <Text color={"#96A4A9"}>No Room Selected </Text>
+                  <VStack ml={"-110"} >
+                    <Image src="https://book.zostel.com/static/media/gray-zobu.018014d9.svg" h={"170px"}   mt="-1"/>
+                  
+
+                    <Text color={"#96A4A9"} fontWeight="bold" fontSize={"16px"}>No Room Selected </Text>
+                  
                   </VStack>
                 )}
                 {/* Hotel Card Ends */}
