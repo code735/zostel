@@ -9,6 +9,7 @@ import {
   HStack,
   Image,
   Link,
+  Select,
   SimpleGrid,
   Stack,
   Text,
@@ -26,9 +27,21 @@ function Destinationpage() {
     },2000)
   },[])
 
+  const alphabet = [...Array(26)].map((_, i) => String.fromCharCode(65 + i));
+
+  let [datamodified,setDatamodified]=useState(data)
+  
+  const handleAlphabetChange=(e)=>{
+      let letter=e.target.value
+      
+      let datamodified1=data.filter((e)=>{
+        return letter==e.Title.at(0)
+      })
+      setDatamodified(datamodified1)
+  }
+
   return <>
     {loading? 
-
     <Center h={"100vh"}>
     {/* //preloader */}
     <PreLoader/>
@@ -54,9 +67,21 @@ function Destinationpage() {
       </Breadcrumb>
       </Box>
 
+      {/* filter  */}
+      <Select placeholder="Select Letter" onChange={handleAlphabetChange} width={{ sm: '100%', md:"100%",lg: '180px',xl:"180px" }}>
+      {alphabet.map((letter) => (
+        <option key={letter} value={letter} width={"100%"}>
+          {letter}
+        </option>
+      ))}
+    </Select>
+      
+
       <SimpleGrid columns={{ sm: '1', md:"2",lg: '3',xl:"4" }} spacing={3}>
-        {data.map((e) => {
+        {datamodified.map((e) => {
             return (
+              <NavLink to={`/destination/${e.Title}`}>
+              {console.log(e)}
               <Card maxW="sm" position="relative">
                 <Image
                   src={e.Image}
@@ -75,9 +100,10 @@ function Destinationpage() {
                   color="white"
                   fontSize={"2xl"}
                 >
-                  {<NavLink to={`/destination/${e.Title}`}>{e.Title}</NavLink>}
+                  {e.Title}
                 </Text>
               </Card>
+              </NavLink>
             );
           })}
       </SimpleGrid>

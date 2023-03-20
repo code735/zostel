@@ -9,7 +9,7 @@ import Payment from '../Components/PAYMENT_PAGE/Payment'
 import PaymentSucces from '../Components/PAYMENT_PAGE/PaymentSucces'
 import Profile from '../Components/Profile/Profile'
 import Zostel from '../Components/ZOSTEL _PAGE/Zostel'
-
+import IsAuthPrivateRoute from '../UseContext/IsAuthPrivateRoute'
 export default function AllRoutes() {
   return (
     <div>
@@ -17,9 +17,11 @@ export default function AllRoutes() {
         <Route path='/' element={<Home />} />
         <Route path='/destination' element={<Destinationpage />} />
         <Route path='/destination/:city' element={<Individual />} />
-        <Route path='/zostel' element={<Zostel />} />
+        <Route path='/destination/:city/:slug' element={<Zostel />} />
         <Route path='/profile' element={<Profile />} />
+        {/* <Route path='/login' element={<IsAuthPrivateRoute><Profile /></IsAuthPrivateRoute>} /> */}
         <Route path='/login' element={<Login />} />
+        <Route path='/payment' element={<IsAuthPrivateRoute><Payment /></IsAuthPrivateRoute>} />
         <Route path='/payment' element={<Payment />} />
         <Route path='/*' element={<Text bg={"red.700"} fontSize="5xl">404 Not Found</Text>} />
         <Route path='/success' element={<PaymentSucces />} />

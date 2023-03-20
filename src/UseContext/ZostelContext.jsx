@@ -1,13 +1,15 @@
-import React, { createContext } from 'react'
+import React, { createContext, useState } from 'react'
 
 
-export const Zostel= createContext()
+export const ZostelContext= createContext()
 
 const ZostelContextProvider = ({children}) => {
+  const [isLogin,setIsLogin]=useState(false)
+
   return (
-    <Zostel.Provider>
+    <ZostelContext.Provider value={{isLogin,setIsLogin}} >
         {children}
-    </Zostel.Provider>
+    </ZostelContext.Provider>
   )
 }
 

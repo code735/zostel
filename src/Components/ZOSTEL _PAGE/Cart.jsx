@@ -1,163 +1,360 @@
-import { Box, Stack, HStack, VStack, Heading, Text, Input, Flex, Image } from "@chakra-ui/react"
-import { ChevronDownIcon } from "@chakra-ui/icons"
-import { Select } from '@chakra-ui/react'
-import { ArrowForwardIcon } from "@chakra-ui/icons"
-import { BsFillPersonFill } from "react-icons/bs"
-import { RxCross2 } from "react-icons/rx"
-import { MdShower, MdRestoreFromTrash, MdOutlineLocalParking, MdOutlineBathtub, MdOtherHouses, MdLocalLaundryService } from "react-icons/md"
-import { GiAtSea } from "react-icons/gi"
-import { FaGlassWhiskey } from "react-icons/fa"
-import { BsFillKeyFill, BsWifi, BsFan, BsFillLampFill, BsFillCreditCardFill, BsReception3, BsQrCodeScan } from "react-icons/bs"
-import { GrCafeteria } from "react-icons/gr"
-import { IoMdCafe, IoMdBed } from "react-icons/io"
+import {
+  Box,
+  Stack,
+  HStack,
+  VStack,
+  Heading,
+  Text,
+  Input,
+  Flex,
+  Image,
+  Option,
+  Center,
+} from "@chakra-ui/react";
+import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Select, Spacer } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
+import { BsFillPersonFill } from "react-icons/bs";
+import { RxCross2 } from "react-icons/rx";
+import {
+  MdShower,
+  MdRestoreFromTrash,
+  MdOutlineLocalParking,
+  MdOutlineBathtub,
+  MdOtherHouses,
+  MdLocalLaundryService,
+} from "react-icons/md";
+import { GiAtSea } from "react-icons/gi";
+import { FaGlassWhiskey } from "react-icons/fa";
+import {
+  BsFillKeyFill,
+  BsWifi,
+  BsFan,
+  BsFillLampFill,
+  BsFillCreditCardFill,
+  BsReception3,
+  BsQrCodeScan,
+} from "react-icons/bs";
+import { GrCafeteria } from "react-icons/gr";
+import { IoMdCafe, IoMdBed } from "react-icons/io";
+import { useEffect, useState } from "react";
+import { RiNumber1 } from "react-icons/ri";
+import parse from "html-react-parser";
 
-import { Card, CardHeader, CardBody, CardFooter, Button, chakra, } from '@chakra-ui/react'
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Button,
+  chakra,
+  Divider,
+  Checkbox,
+} from "@chakra-ui/react";
+import PreLoader from "../PreLoader";
+import { NavLink, useParams } from "react-router-dom";
 const CartCom = () => {
-  const carddata = [{
-    pic: "https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280",
-    title: "4 Bed Mixed Dorm (Ensuite)",
-    price: 756,
-    des: "A bed in a mixed dormitory with private lockers, AC, and a shared washroom outside"
-  },
-  {
-    pic: "https://img.cdn.zostel.com/zostel/gallery/images/LEZzomqOSqaKSwTTUro54Q/zostel-alleppey-20221008133126.jpg?w=1280",
-    title: "6 Bed Mixed Dorm (with shared washroom)",
-    price: 896,
-    des: "A bed in a mixed dormitory with private lockers, AC, and a shared washroom outside."
-  }]
+  const [carddata, setcard] = useState();
+  const [cart, setcart] = useState([]);
+
+  let slug1= useParams();
+  console.log("slug: ", slug1);
+  let slug = slug1.slug;
+  // let slug = "bir-20-birh138";
+  const Getdata = () => {
+    console.log("yha hai");
+    fetch(
+      `https://api.zostel.com/api/v1/stay/metadata/?url=https://www.zostel.com/zostel/bir/${slug}/`
+    )
+      .then((res) => res.json())
+      .then((d) => {
+        setcard(d.data);
+      });
+  };
+
+  const [totalprice, setTotalprice] = useState(0);
+
+  useEffect(() => {
+    Getdata();
+  }, []);
+  const handledata = (e, ele) => {
+    console.log("ele: ", ele);
+    console.log("cart", cart);
+    if (cart.length > 0) {
+      let arr = cart.filter((elem, i) => {
+        return elem.id != ele.id;
+      });
+      arr.push({ ...ele, quantity_rooms: Number(e.target.value) });
+      let x = arr.reduce((e1, e2) => {
+        return e1 + e2.price * e2.quantity_rooms;
+      }, 0);
+      setTotalprice(x);
+      setcart(arr);
+    } else {
+      setTotalprice(ele.price * Number(e.target.value));
+      setcart([...cart, { ...ele, quantity_rooms: Number(e.target.value) }]);
+    }
+  };
+  console.log(cart);
+
   return (
-    <Box bg="rgb(232,240,242)" w="100vw" >
-      <Box w="80%" m="auto" >
-        <Flex>
-          <Box  >
-            <Flex justifyContent="space-evenly">
-              <VStack mt="30px" mr="80px">
-                <Heading fontSize="2xl" ml="-100px" >Book Your Stay</Heading>
-                <Text>Select from a range of beautiful rooms</Text>
-              </VStack>
-              <Box>
-                <Select fontSize="1xl" w="75px" mt="30px" mr="20px" color="coral" borderColor="coral" size="sm" textDecoration="none" border="none" borderRadius="5px">
-                  <option value='option1'>INR - Indian Rupee</option>
-                  <option value='option2'>EURO - Euro</option>
-                  <option value='option3'>USD - United State Dolar</option>
-                  <option value='option3'>GBP - British Pound Sterling</option>
-                  <option value='option3'>AED - nited Arab Emirates Dirham</option>
-                </Select>
-              </Box>
-              <Box ml="10px" mr="10px">
-                <HStack mt="30px">
-                  <Input type="date" w="150px" ml="30px" size="sm" border="none" borderBottom="1px solid black" textDecoration="none" />
-                  <ArrowForwardIcon />
-                  <Input type="date" w="150px" ml="30px" size="sm" border="none" borderBottom="1px solid black" textDecoration="none" />
-                </HStack>
-              </Box>
-            </Flex>
-
-            <Box >
-              {/* <Flex>
-                    <Image src="https://lh3.googleusercontent.com/oDYySe2BxHQJZ5D05NE8KnyNmzEOR9v-uobeVZDW-UZHve506SIDxiLS1gw8fClI0yxdbXoJUFHsi_bneW71eZbL0_eDByKrIHOMubo" h="200px" w="250px" alt="error"/>
-                     <HStack>
-                        <VStack>
-                      <HStack >
-                      <Heading fontSize="2xl">6 Bed Mixed Dorm</Heading>
-                      <Text mr="150px"><span fontSize="2xl">$6.66</span>/night</Text>
-                      </HStack>
-                        <HStack>
-                        <BsFillPersonFill/>  
-                        <RxCross2/>
-                        <Text>1</Text>
-                        </HStack>
-                       </VStack>
-                     </HStack>
-                    
-                    </Flex>  */}
-              
-
-                {carddata.map((ele) => {
-                  
-
-                  return  <div style={{marginBottom:"10px"}}><Card
-                    direction={{ base: 'column', sm: 'row' }}
-                    overflow='hidden'
-                    variant='outline'
+    <>
+      {carddata == undefined ? (
+        <PreLoader />
+      ) : (
+        <Box width="100%" bg="#E8F0F2" pt="50" pb="50">
+          <Stack direction="row" m="auto" width="80%">
+            <VStack width="70%">
+              <HStack w={"100%"}>
+                <VStack mb="5">
+                  <Text as={"h3"} fontSize="40px" fontWeight="700">
+                    Book your stay
+                  </Text>
+                  <Text fontSize="16px" fontWeight="500" color="#4D585B">
+                    Select from a range of beautiful rooms
+                  </Text>
+                </VStack>
+                <Spacer />
+                <HStack w={"450px"}>
+                  <Select placeholder="INR" fontSize="sm" bg="white">
+                    <option value="INR">INR</option>
+                    <option value="EURO">EURO</option>
+                    <option value="DOLLAR">DOLLAR</option>
+                  </Select>
+                  <HStack
+                    borderRadius="10"
+                    bg="white"
+                    boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
                   >
-                    <Image
-                      objectFit='cover'
-                      maxW={{ base: '100%', sm: '200px' }}
-                      src={ele.pic}
-                      alt='Caffe Latte'
-                      />
+                    <Input type="date" border="none" />
+                    <ArrowForwardIcon />
+                    <Input type="date" border="none" />
+                  </HStack>
+                </HStack>
+              </HStack>
+              <Box width="100%">
+                {carddata.rooms.map((ele) => {
+                  return (
+                    <div style={{ marginBottom: "10px" }}>
+                      <Card
+                        bg={"#FAFEFF"}
+                        direction={{ base: "column", sm: "row" }}
+                        overflow="hidden"
+                        variant="outline"
+                        borderRadius={"12px"}
+                      >
+                        <Image
+                          objectFit="cover"
+                          maxW={{ base: "100%", sm: "200px" }}
+                          src={ele.images[0].image}
+                          alt="Caffe Latte"
+                        />
 
-                    <Stack >
-                      <CardBody>
-                        <Flex justify="space-between">
-                          <chakra.h3 fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
-                            {ele.title}
-                          </chakra.h3>
-                          <chakra.h3 fontSize={{ base: 'lg', md: 'xl' }} fontWeight="bold">
-                            {ele.price}/night
-                          </chakra.h3>
-                        </Flex>
+                        <Stack>
+                          <CardBody w={"600px"} p="5">
+                            <HStack>
+                              <chakra.h3
+                                fontSize={{ base: "lg", md: "xl" }}
+                                fontWeight="bold"
+                              >
+                                {ele.name}
+                              </chakra.h3>
+                              <Spacer />
+                              <chakra.h3
+                                fontSize={{ base: "lg", md: "xl" }}
+                                fontWeight="bold"
+                              >
+                                ₹{ele.price}/night
+                              </chakra.h3>
+                            </HStack>
 
-                        <Flex>
+                            <Flex mt={"10px"}>
+                              <BsFillPersonFill />
+                              <RxCross2 />
 
+                              <RiNumber1 />
+                            </Flex>
 
-                          <BsFillPersonFill />
-                          <RxCross2 />
+                            <Text py="2">{parse(ele.description)}</Text>
+                            <Flex gap={2}>
+                              <MdShower /> <MdRestoreFromTrash />{" "}
+                              <MdOutlineLocalParking /> <MdOutlineBathtub />{" "}
+                              <GiAtSea /> <FaGlassWhiskey />
+                              <BsFillKeyFill /> <BsWifi /> <BsFan />{" "}
+                              <BsFillLampFill /> <BsFillCreditCardFill />{" "}
+                              <BsReception3 /> <BsQrCodeScan /> <GrCafeteria />{" "}
+                              <IoMdCafe /> <IoMdBed />
+                            </Flex>
+                          </CardBody>
 
-                          <Text>1</Text>
-                        </Flex>
+                          <HStack>
+                            <Box>
+                              <Select
+                                fontSize="1xl"
+                                mt="10px"
+                                mb="10px"
+                                mr="20px"
+                                color="coral"
+                                borderColor="coral"
+                                size="sm"
+                                textDecoration="none"
+                                border="none"
+                                borderRadius="5px"
+                              >
+                                <option value="option1">Rooms Available</option>
+                              </Select>
+                            </Box>
+                            <Spacer />
 
-
-                        <Text py='2'>
-                          {ele.des}
-                        </Text>
-                        <Flex gap={1}>
-                          <MdShower /> <MdRestoreFromTrash /> <MdOutlineLocalParking /> <MdOutlineBathtub /> <MdOtherHouses /> <MdLocalLaundryService />  <GiAtSea /> <FaGlassWhiskey />
-                          <BsFillKeyFill /> <BsWifi /> <BsFan /> <BsFillLampFill /> <BsFillCreditCardFill /> <BsReception3 /> <BsQrCodeScan />  <GrCafeteria /> <IoMdCafe /> <IoMdBed />
-                        </Flex>
-                      </CardBody>
-
-
-                      <Flex >
-                        <Box>
-                          <Select fontSize="1xl" mt="10px"  mb="10px"  mr="20px" color="coral" borderColor="coral" size="sm" textDecoration="none" border="none" borderRadius="5px">
-                            <option value='option1'>Rooms Available</option>
-
-                          </Select>
-                        </Box>
-
-
-                        <Button variant='solid' colorScheme='orange' _hover={{ bg: "white", color: "tomato" }} ml={"40%"} color="white" bg="tomato">
-                          Book Now
-                        </Button>
-                      </Flex>
-
-                    </Stack>
-                  </Card>
-                </div>
+                            <Box pr="15px">
+                              <Select
+                                borderColor="coral"
+                                size="sm"
+                                textDecoration="none"
+                                border="none"
+                                borderRadius="5px"
+                                fontSize="1xl"
+                                color="white"
+                                bg={"tomato"}
+                                onChange={(e) => {
+                                  handledata(e, ele);
+                                }}
+                              >
+                                <option
+                                  value="option1"
+                                  style={{
+                                    backgroundColor: "#E8F0F2",
+                                    borderRadius: "none",
+                                    color: "black",
+                                  }}
+                                >
+                                  Select Room
+                                </option>
+                                <option
+                                  value="1"
+                                  style={{
+                                    backgroundColor: "#E8F0F2",
+                                    borderRadius: "none",
+                                    color: "black",
+                                  }}
+                                >
+                                  1
+                                </option>
+                                <option
+                                  value="2"
+                                  style={{
+                                    backgroundColor: "#E8F0F2",
+                                    borderRadius: "none",
+                                    color: "black",
+                                  }}
+                                >
+                                  2
+                                </option>
+                                <option
+                                  value="3"
+                                  style={{
+                                    backgroundColor: "#E8F0F2",
+                                    borderRadius: "none",
+                                    color: "black",
+                                  }}
+                                >
+                                  3
+                                </option>
+                              </Select>
+                            </Box>
+                          </HStack>
+                        </Stack>
+                      </Card>
+                    </div>
+                  );
                 })}
-              
-            </Box>
-          </Box>
-          <Box border="1px solid red" ml={"2%"} >
-            <VStack >
-              <Heading mt="30px" fontSize="2xl" ml="-150px">Summary</Heading>
-              <Text ml="5%" >1 night starting from Sat 18 Mar,2023</Text>
+              </Box>
             </VStack>
-            <HStack>
+            <Spacer />
+            <Box
+              borderRadius={"10"}
+              width={{
+                sm: "100%",
+                md: "100%",
+                lg: "35%",
+                xl: "35%",
+              }}
+              // border={useColorModeValue("1px solid #E8F0F2", "1px solid #3F444E")}
+              padding={"3"}
+            >
+              <Text as={"h3"} fontSize={"24"} fontWeight={"700"}>
+                Summary
+              </Text>
+              <Text fontSize={"14"} fontWeight={"700"}>
+                1 night <span style={{ color: "gray" }}>starting from</span> Mon
+                27 Mar, 2023
+              </Text>
               <VStack>
-                <Image src="https://book.zostel.com/static/media/gray-zobu.018014d9.svg" />
-                < Text color="rgb(150,164,169)">No room selected</Text>
+                {/* Hotel Card Starts */}
+                <></>
+                {cart.length > 0 ? (
+                  <>
+                    {cart.map((e) => {
+                      return (
+                        <HStack spacing={5} width={"100%"} mt={5}>
+                          <Image
+                            src={e.images[0].image}
+                            width={"64px"}
+                            borderRadius="10"
+                          />
+                          <VStack align={"baseline"} spacing={"0"}>
+                            <Text fontSize={"14"} fontWeight={"600"}>
+                              {e.name} x {e.quantity_rooms}
+                            </Text>
+                            <Text fontSize={"16"} fontWeight={"600"}>
+                              ₹{e.price} x 1 night
+                            </Text>
+                          </VStack>
+                          <Spacer />
+                          <Text fontSize={"16"} fontWeight={"600"}>
+                            ₹{e.price * e.quantity_rooms}
+                          </Text>
+                        </HStack>
+                      );
+                    })}
+                    <Divider />
+                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                      <Text>Tax</Text>
+                      <Spacer />
+                      <Text>₹{(totalprice * 0.12).toFixed(0)}</Text>
+                    </HStack>
+                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                      <Text>Total (tax incl.)</Text>
+                      <Spacer />
+                      <Text>₹{totalprice}</Text>
+                    </HStack>
+                    <HStack width={"100%"} fontSize={18} fontWeight="600">
+                      <Text>Payable Now</Text>
+                      <Spacer />
+                      <Text>₹{(totalprice * 0.21).toFixed(0)}</Text>
+                    </HStack>
+                    <Divider />
+                    <Button
+                      isDisabled={false}
+                      width={"100%"}
+                      colorScheme={"orange"}
+                    >
+                      <NavLink to="/payment">Payment</NavLink>
+                    </Button>
+                  </>
+                ) : (
+                  <VStack>
+                    <Image src="https://book.zostel.com/static/media/gray-zobu.018014d9.svg" />
+                    <Text color={"#96A4A9"}>No Room Selected </Text>
+                  </VStack>
+                )}
+                {/* Hotel Card Ends */}
               </VStack>
-
-            </HStack>
-
-          </Box>
-        </Flex>
-      </Box>
-    </Box>
-
-  )
-}
+            </Box>
+          </Stack>
+        </Box>
+      )}
+    </>
+  );
+};
 export default CartCom;
