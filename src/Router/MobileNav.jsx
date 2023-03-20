@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Box, Button, Text } from '@chakra-ui/react';
 import { VscThreeBars } from 'react-icons/vsc';
 import { motion } from 'framer-motion';
+import { NavLink } from 'react-router-dom';
 
 export default function MobileNav() {
     const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +46,7 @@ export default function MobileNav() {
                                 gap: "20px"
                             }}
                         >
-                            <Text>Destinations</Text>
+                            <NavLink to="/destination"><Text>Destinations</Text></NavLink>
                             <Text>Zostel</Text>
                             <Text>Zostel Homes</Text>
                             <Text>Zostel Plus</Text>
