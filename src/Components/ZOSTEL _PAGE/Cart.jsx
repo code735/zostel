@@ -39,7 +39,7 @@ import {
 } from "react-icons/bs";
 import { GrCafeteria } from "react-icons/gr";
 import { IoMdCafe, IoMdBed } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RiNumber1 } from "react-icons/ri";
 import parse from "html-react-parser";
 
@@ -55,6 +55,7 @@ import {
 } from "@chakra-ui/react";
 import PreLoader from "../PreLoader";
 import { NavLink, useParams } from "react-router-dom";
+import { ZostelContext } from "../../UseContext/ZostelContext";
 const CartCom = () => {
   const [carddata, setcard] = useState();
   const [cart, setcart] = useState([]);
@@ -78,6 +79,17 @@ const CartCom = () => {
 
   const [totalprice, setTotalprice] = useState(0);
 
+  const {reserved,setReserved,maincart,setMaincart ,enddate,setEnddate,startdate,setStartdate}=useContext(ZostelContext)
+
+  function startdatechange(e){
+    console.log("startdatechange: ", e.target.value);
+    setStartdate(e.target.value)
+  
+  }
+  function enddatechange(e){
+    console.log("enddatechange: ", e.target.value);
+    setEnddate(e.target.value)
+  }
   useEffect(() => {
     Getdata();
   }, []);
@@ -94,9 +106,11 @@ const CartCom = () => {
       }, 0);
       setTotalprice(x);
       setcart(arr);
+      setMaincart(arr)
     } else {
       setTotalprice(ele.price * Number(e.target.value));
       setcart([...cart, { ...ele, quantity_rooms: Number(e.target.value) }]);
+      setMaincart([...cart, { ...ele, quantity_rooms: Number(e.target.value) }]);
     }
   };
 
@@ -133,9 +147,9 @@ const CartCom = () => {
                     bg="white"
                     boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"
                   >
-                    <Input type="date" border="none" color={"black"}/>
+                    <Input type="date" onChange={startdatechange} value={startdate} border="none" color={"black"}/>
                     <ArrowForwardIcon   color={"black"}/>
-                    <Input type="date" border="none"  color={"black"}/>
+                    <Input type="date" onChange={enddatechange} value={enddate} border="none"  color={"black"}/>
                   </HStack>
                 </HStack>
               </HStack>
@@ -295,8 +309,7 @@ const CartCom = () => {
                 Summary
               </Text>
               <Text fontSize={"14"} fontWeight={"700"} color={colorMode === "light" ? "black" : "white"}>
-                1 night <span style={{ color: "gray" }}>starting from</span> Mon
-                27 Mar, 2023
+                Stay night <span style={{ color: "gray" }}>starting from</span> {startdate}
               </Text>
               <VStack>
                 {/* Hotel Card Starts */}
@@ -331,7 +344,7 @@ const CartCom = () => {
                       <Text>Tax</Text>
                       <Spacer />
                       <Text>₹{(totalprice * 0.12).toFixed(0)}</Text>
-                    </HStack >
+                    </HStack>
                     <HStack width={"100%"} fontSize={18} fontWeight="600"  color={colorMode === "light" ? "black" : "white"}>
                       <Text>Total (tax incl.)</Text>
                       <Spacer />
@@ -349,6 +362,9 @@ const CartCom = () => {
                       colorScheme={"tomato"}
                       bg="tomato"
                       color={"white"}
+                      onClick={()=>{
+                        setReserved([...maincart])
+                      }}
                     >
                       <NavLink to="/payment">Book now</NavLink>
                     </Button>
