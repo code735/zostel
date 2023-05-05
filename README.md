@@ -1,4 +1,4 @@
-##PT-WEB-09 || UNIT-6 || GROUP 6 || Construct Week Project || 5 Days
+## PT-WEB-09 | UNIT-6 | GROUP 6 | Construct Week Project | 5 Days
 
 ## Deployed Link : https://zostel-ten.vercel.app/
 
